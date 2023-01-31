@@ -3,8 +3,8 @@
 #include <vector>
 using namespace std;
 
-
 class piece{
+    public:
     char id; // 0 
     char color;
     int posX;
@@ -13,31 +13,54 @@ class piece{
         id(id),color(color),posX(X),posY(Y){}
 };
 
+
 class square{
+    private:
     piece* piece; // NULL if no piece
+    public:
+    void setSquare(class piece* pointer){
+        this->piece = pointer;
+    }
+
 };
 class game{
     private:
     square board[8][8];
     piece *piecesW[16];
     piece *piecesB[16];
+    public:
     game(){
-        piecesW[0] = new Tour    (Noir, " \u265C ",  Square(7,0));
-        piecesW[1] = new Cavalier(Noir, " \u265E ",  Square(7,1));
-        piecesW[2] = new Fou     (Noir, " \u265D ",  Square(7,2));
-        piecesW[3] = new Dame    (Noir, " \u265B ",  Square(7,3));
-        piecesW[4] = new Roi     (Noir, " \u265A ",  Square(7,4));
-        piecesW[5] = new Fou     (Noir, " \u265D ",  Square(7,5));
-        piecesW[6] = new Cavalier(Noir, " \u265E ",  Square(7,6));
-        piecesW[7] = new Tour    (Noir, " \u265C ",  Square(7,7));
-        piecesB[0] = new Tour    (Blanc," \u2656 ",  Square(0,0));
-        piecesB[1] = new Cavalier(Blanc," \u2658 ",  Square(0,1));
-        piecesB[2] = new Fou     (Blanc," \u2657 ",  Square(0,2));
-        piecesB[3] = new Dame    (Blanc," \u2655 ",  Square(0,3));
-        piecesB[4] = new Roi     (Blanc," \u2654 ",  Square(0,4));
-        piecesB[5] = new Fou     (Blanc," \u2657 ",  Square(0,5));
-        piecesB[6] = new Cavalier(Blanc," \u2658 ",  Square(0,6));
-        piecesB[7] = new Tour    (Blanc," \u2656 ",  Square(0,7));
+        piecesB[0] = new piece('R','B',0,7);
+        piecesB[1] = new piece('N','B',1,7);
+        piecesB[2] = new piece('B','B',2,7);
+        piecesB[3] = new piece('Q','B',3,7);
+        piecesB[4] = new piece('K','B',4,7);
+        piecesB[5] = new piece('B','B',5,7);
+        piecesB[6] = new piece('N','B',6,7);
+        piecesB[7] = new piece('R','B',7,7);
+
+        piecesW[0] = new piece('R','W',0,0);
+        piecesW[1] = new piece('N','W',1,0);
+        piecesW[2] = new piece('B','W',2,0);
+        piecesW[3] = new piece('Q','W',3,0);
+        piecesW[4] = new piece('K','W',4,0);
+        piecesW[5] = new piece('B','W',5,0);
+        piecesW[6] = new piece('N','W',6,0);
+        piecesW[7] = new piece('R','W',7,0);
+        for(int i(0);i<7;i++){
+            piecesB[i+8] = new piece('P','B',i,6);
+            piecesW[i+8] = new piece('P','W',i,1);
+        }
+        updateBoard();
+    }
+    void updateBoard(){
+        for(int i(0);i<64;i++){
+            board[i/8][i%8].setSquare(nullptr);
+        }
+        for(int i(0);i<16;i++){
+            board[piecesB[i]->posX][piecesB[i]->posY].setSquare(piecesB[i]);
+            board[piecesW[i]->posX][piecesW[i]->posY].setSquare(piecesW[i]);
+        }   
     }
 
 };
@@ -80,7 +103,8 @@ void printBoard(game *game){
 int main(){
     int Elisa = 8;
     (void)Elisa;
-    game game;
+    //game game;
+    cout << sizeof("\u2654") << endl;
     printBoard(&game);
 
 
