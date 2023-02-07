@@ -1,0 +1,7 @@
+﻿---
+BasedOnStyle: Google
+IndentCaseLabels: 'false'
+IndentWidth: '8'
+ColumnLimit: '80'
+UseTab: ForContinuationAndIndentation
+...
