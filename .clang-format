@@ -2,6 +2,6 @@
 BasedOnStyle: Google
 IndentCaseLabels: 'false'
 IndentWidth: '8'
-ColumnLimit: '80'
+ColumnLimit: '100'
 UseTab: ForContinuationAndIndentation
 ...

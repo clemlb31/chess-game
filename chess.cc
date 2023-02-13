@@ -1,11 +1,10 @@
-#include <stdio.h>
-
 #include <cstddef>
 #include <cstring>
 #include <iostream>
 #include <string>
 #include <type_traits>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 enum Color { Black = 0, White = 1 };
@@ -39,23 +38,28 @@ enum Rank {
 	rank_7 = 6,
 	rank_8 = 7,
 };
-enum GameState { inProgess = 0, BlackWin = 1, WhiteWin = 2, quit = 3 };
+enum GameState { inProgess = 0, BlackWin = 1, WhiteWin = 2, Stalemate = 3, quit = 4 };
+
+enum errorMove {
+	noError = 0,
+	wrongColor = 1,
+	wrongPiece = 2,
+	wrongMove = 3,
+	wrongPath = 4,
+	wrongCastling = 5,
+	wrongPromotion = 6
+};
 
 class Piece {
        public:
-	PieceType id;  // 0
+	PieceType id;
 	Color color;
 	int posX;
 	int posY;
 	bool EnPassant;
 	bool hasMoved;
 	Piece(PieceType id, Color color, int X, int Y)
-	    : id(id),
-	      color(color),
-	      posX(X),
-	      posY(Y),
-	      EnPassant(0),
-	      hasMoved(false) {}
+	    : id(id), color(color), posX(X), posY(Y), EnPassant(0), hasMoved(false) {}
 	string toUtf();
 };
 
@@ -127,11 +131,14 @@ void Square::updateUtf() {
 
 class Game {
        private:
-	int state;
+	GameState state;
 	Piece *piecesW[16];
 	Piece *piecesB[16];
 	int prevousPositions[32][2];
+	int previousState[32][2];  // 0 = Enpassant, 1 = hasMoved
+
        public:
+	ofstream file;
 	int moveInt[4];
 	Game();
 	string move;
@@ -141,60 +148,130 @@ class Game {
 	void updateBoard();
 	int moveToFile(int nb);
 	int moveToRank(int nb);
+	void resetEnPassant();
 	void savePositions();
 	void undoMove();
 	bool check;
-	int ischeckmate(int color);
+	int isCheckMate(int color);
 	int isCheck(int color);
+	int isStalemate(int color);
 	int getState() { return state; }
 	void getmove();
 	void play();
-	int tryMove(int x1, int y1, int x2, int y2);
+	int moveIsLegal(int x1, int y1, int x2, int y2);
 	int movePiece();
 	int shortCastling();
 	int longCastling();
 	int pathIsClear(int x1, int y1, int x2, int y2);
+	void quitGame();
+	int promotePawn();
 	~Game() {
 		for (int i(0); i < 16; i++) {
 			delete piecesB[i];
 			delete piecesW[i];
 		}
+		file.close();
 	}
 };
-void Game::savePositions(){
+void Game::savePositions() {
 	for (int i(0); i < 16; i++) {
 		prevousPositions[i][0] = piecesB[i]->posX;
 		prevousPositions[i][1] = piecesB[i]->posY;
+		previousState[i][0] = piecesB[i]->EnPassant;
+		previousState[i][1] = piecesB[i]->hasMoved;
 		prevousPositions[i + 16][0] = piecesW[i]->posX;
 		prevousPositions[i + 16][1] = piecesW[i]->posY;
+		previousState[i + 16][0] = piecesW[i]->EnPassant;
+		previousState[i + 16][1] = piecesW[i]->hasMoved;
 	}
 }
-void Game::undoMove(){
+void Game::undoMove() {
 	for (int i(0); i < 16; i++) {
 		piecesB[i]->posX = prevousPositions[i][0];
 		piecesB[i]->posY = prevousPositions[i][1];
+		piecesB[i]->EnPassant = previousState[i][0];
+		piecesB[i]->hasMoved = previousState[i][1];
 		piecesW[i]->posX = prevousPositions[i + 16][0];
 		piecesW[i]->posY = prevousPositions[i + 16][1];
+		piecesW[i]->EnPassant = previousState[i + 16][0];
+		piecesW[i]->hasMoved = previousState[i + 16][1];
 	}
 }
 
 int Game::isTheatened(int x, int y, Color color) {
 	if (color == White) {
 		for (int i(0); i < 16; i++) {
-			if (tryMove(piecesB[i]->posX, piecesB[i]->posY, x, y)) {
+			if (moveIsLegal(piecesB[i]->posX, piecesB[i]->posY, x, y)) {
 				return 1;
 			}
 		}
 	} else {
 		for (int i(0); i < 16; i++) {
-			if (tryMove(piecesW[i]->posX, piecesW[i]->posY, x, y)) {
+			if (moveIsLegal(piecesW[i]->posX, piecesW[i]->posY, x, y)) {
 				return 1;
 			}
 		}
 	}
 	return 0;
 }
-
+int Game::promotePawn() {
+	int x2(moveInt[2]);
+	int y2(moveInt[3]);
+	if (board[x2][y2].piece->id == Pawn) {
+		if (board[x2][y2].piece->color == White) {
+			if (y2 == 7) {
+				cout << "Promote to (Q)ueen, (R)ook, (B)ishop "
+					"or (K)night?"
+				     << endl;
+				char choice;
+				cin >> choice;
+				switch (choice) {
+				case 'Q':
+					board[x2][y2].piece->id = Queen;
+					break;
+				case 'R':
+					board[x2][y2].piece->id = Rook;
+					break;
+				case 'B':
+					board[x2][y2].piece->id = Bishop;
+					break;
+				case 'K':
+					board[x2][y2].piece->id = Knight;
+					break;
+				default:
+					cout << "Invalid choice" << endl;
+					return 0;
+				}
+			}
+		} else {
+			if (y2 == 0) {
+				cout << "Promote to (Q)ueen, (R)ook, (B)ishop "
+					"or (K)night?"
+				     << endl;
+				char choice;
+				cin >> choice;
+				switch (choice) {
+				case 'Q':
+					board[x2][y2].piece->id = Queen;
+					break;
+				case 'R':
+					board[x2][y2].piece->id = Rook;
+					break;
+				case 'B':
+					board[x2][y2].piece->id = Bishop;
+					break;
+				case 'K':
+					board[x2][y2].piece->id = Knight;
+					break;
+				default:
+					cout << "Invalid choice" << endl;
+					return 0;
+				}
+			}
+		}
+	}
+	return 1;
+}
 int Game::pathIsClear(int x1, int y1, int x2, int y2) {
 	if (x1 == x2) {
 		if (y1 < y2) {
@@ -257,7 +334,7 @@ int Game::pathIsClear(int x1, int y1, int x2, int y2) {
 }
 int Game::moveToFile(int nb) { return move[nb] - 'a'; }
 int Game::moveToRank(int nb) { return move[nb] - '1'; }
-int Game::tryMove(int x1, int y1, int x2, int y2) {
+int Game::moveIsLegal(int x1, int y1, int x2, int y2) {
 	switch (board[x1][y1].piece->id) {
 	case Rook:
 		if (x1 != x2 && y1 != y2) {
@@ -266,6 +343,7 @@ int Game::tryMove(int x1, int y1, int x2, int y2) {
 		if (!pathIsClear(x1, y1, x2, y2)) {
 			return 0;
 		}
+		resetEnPassant();
 		break;
 	case Bishop:
 		if (abs(x1 - x2) != abs(y1 - y2)) {
@@ -274,17 +352,20 @@ int Game::tryMove(int x1, int y1, int x2, int y2) {
 		if (!pathIsClear(x1, y1, x2, y2)) {
 			return 0;
 		}
+		resetEnPassant();
 		break;
 	case Knight:
 		if ((abs(x1 - x2) != 2 && abs(y1 - y2) != 2) ||
 		    (abs(x1 - x2) != 1 && abs(y1 - y2) != 1)) {
 			return 0;
 		}
+		resetEnPassant();
 		break;
 	case King:
 		if (abs(x1 - x2) > 1 || abs(y1 - y2) > 1) {
 			return 0;
 		}
+		resetEnPassant();
 		break;
 	case Queen:
 		if (abs(x1 - x2) != abs(y1 - y2) && x1 != x2 && y1 != y2) {
@@ -293,6 +374,7 @@ int Game::tryMove(int x1, int y1, int x2, int y2) {
 		if (!pathIsClear(x1, y1, x2, y2)) {
 			return 0;
 		}
+		resetEnPassant();
 		break;
 
 	case Pawn:
@@ -323,6 +405,9 @@ int Game::tryMove(int x1, int y1, int x2, int y2) {
 				return 0;
 			}
 		}
+		if (abs(y1 - y2) == 1 && x1 == x2 && board[x2][y2].piece != nullptr) {
+			return 0;
+		}
 		if (abs(y1 - y2) == 2) {
 			if (pathIsClear(x1, y1, x2, y2)) {
 				board[x1][y1].piece->EnPassant = true;
@@ -331,50 +416,70 @@ int Game::tryMove(int x1, int y1, int x2, int y2) {
 				return 0;
 			}
 		} else {
-			board[x1][y1].piece->EnPassant = false;
-		}
-		if (!pathIsClear(x1, y1, x2, y2)) {
-			return 0;
+			resetEnPassant();
 		}
 		break;
 	}
 	return 1;
 }
+
+void Game::resetEnPassant() {
+	for (int i(0); i < 8; i++) {
+		for (int j(0); j < 8; j++) {
+			if (board[i][j].piece != nullptr) {
+				if (board[i][j].piece->color == turn) {
+					board[i][j].piece->EnPassant = false;
+				}
+			}
+		}
+	}
+}
 int Game::movePiece() {
-	if (moveInt[0] < 0 || moveInt[0] > 7 || moveInt[1] < 0 ||
-	    moveInt[1] > 7 || moveInt[2] < 0 || moveInt[2] > 7 ||
-	    moveInt[3] < 0 || moveInt[3] > 7) {
+	if (moveInt[0] < 0 || moveInt[0] > 7 || moveInt[1] < 0 || moveInt[1] > 7 ||
+	    moveInt[2] < 0 || moveInt[2] > 7 || moveInt[3] < 0 || moveInt[3] > 7) {
 		return 0;
 	}
 	if (board[moveInt[0]][moveInt[1]].piece == nullptr) {
-		cout << "pas de piece sur la case de départ" << endl;
+		cout << "No piece on the case" << endl;
 		return 0;
 	}
 	if (board[moveInt[0]][moveInt[1]].piece->color != turn) {
-		cout << "pas votre piece" << endl;
+		cout << "Not your piece" << endl;
 		return 0;
 	}
 	if (board[moveInt[2]][moveInt[3]].piece != nullptr) {
 		if (board[moveInt[2]][moveInt[3]].piece->color == turn) {
-			cout << "piece de votre couleur sur la case d'arrivée"
-			     << endl;
+			cout << "You can't take your own piece" << endl;
 			return 0;
-		} else {
-			board[moveInt[2]][moveInt[3]].piece->posX = -1;
-			board[moveInt[2]][moveInt[3]].piece->posY = -1;
 		}
 	}
-	if (!tryMove(moveInt[0], moveInt[1], moveInt[2], moveInt[3])) {
-		cout << "erreur de déplacement" << endl;
+	if (!moveIsLegal(moveInt[0], moveInt[1], moveInt[2], moveInt[3])) {
+		cout << "Move is not legal" << endl;
 		return 0;
+	}
+	if (board[moveInt[2]][moveInt[3]].piece != nullptr) {
+		board[moveInt[2]][moveInt[3]].piece->posX = -1;
+		board[moveInt[2]][moveInt[3]].piece->posY = -1;
 	}
 	board[moveInt[0]][moveInt[1]].piece->posX = moveInt[2];
 	board[moveInt[0]][moveInt[1]].piece->posY = moveInt[3];
 	board[moveInt[0]][moveInt[1]].piece->hasMoved = true;
+	if (check) {
+		updateBoard();
+		if (isCheck(turn)) {
+			cout << "You can't move you're in check" << endl;
+			undoMove();
 
+			updateBoard();
+			return 0;
+		} else {
+			check = false;
+		}
+	}
 	return 1;
 }
-int Game::isCheck(int color){
+
+int Game::isCheck(int color) {
 	int kingX, kingY;
 	if (color == White) {
 		kingX = piecesW[4]->posX;
@@ -387,7 +492,7 @@ int Game::isCheck(int color){
 		for (int j = 0; j < 8; j++) {
 			if (board[i][j].piece != nullptr) {
 				if (board[i][j].piece->color != color) {
-					if (tryMove(i, j, kingX, kingY)) {
+					if (moveIsLegal(i, j, kingX, kingY)) {
 						return 1;
 					}
 				}
@@ -396,14 +501,63 @@ int Game::isCheck(int color){
 	}
 	return 0;
 }
+int Game::isCheckMate(int color) {
+	for (int i = 0; i < 64; i++) {
+		if (board[i % 8][i / 8].piece != nullptr &&
+		    board[i % 8][i / 8].piece->color == color) {
+			for (int j = 0; j < 64; j++) {
+				if ((board[j % 8][j / 8].piece != nullptr &&
+				     board[j % 8][j / 8].piece->color != color &&
+				     board[j % 8][j / 8].piece->id != King) ||
+				    board[j % 8][j / 8].piece == nullptr) {
+					if (moveIsLegal(i % 8, i / 8, j % 8, j / 8)) {
+						board[i % 8][i / 8].piece->posX = j % 8;
+						board[i % 8][i / 8].piece->posY = j / 8;
+						updateBoard();
+						if (!isCheck(color)) {
+							undoMove();
+							return 0;
+						}
+						undoMove();
+						updateBoard();
+					}
+				}
+			}
+		}
+	}
+	return 1;
+}
+int Game::isStalemate(int color) {
+	for (int i = 0; i < 64; i++) {
+		if (board[i % 8][i / 8].piece != nullptr &&
+		    board[i % 8][i / 8].piece->color == color) {
+			for (int j = 0; j < 64; j++) {
+				if ((board[j % 8][j / 8].piece != nullptr &&
+				     board[j % 8][j / 8].piece->color != color) ||
+				    board[j % 8][j / 8].piece == nullptr) {
+					if (moveIsLegal(i % 8, i / 8, j % 8, j / 8)) {
+						board[i % 8][i / 8].piece->posX = j % 8;
+						board[i % 8][i / 8].piece->posY = j / 8;
+						updateBoard();
+						if (!isCheck(color)) {
+							undoMove();
+							return 0;
+						}
+						undoMove();
+						updateBoard();
+					}
+				}
+			}
+		}
+	}
+	return 1;
+}
+
 int Game::shortCastling() {
 	if (turn == White) {
-		if (piecesW[4]->hasMoved == false &&
-		    piecesW[7]->hasMoved == false) {
-			if (board[5][0].piece == nullptr &&
-			    board[6][0].piece == nullptr) {
-				if (isTheatened(4, 0, White) ||
-				    isTheatened(5, 0, White) ||
+		if (piecesW[4]->hasMoved == false && piecesW[7]->hasMoved == false) {
+			if (board[5][0].piece == nullptr && board[6][0].piece == nullptr) {
+				if (isTheatened(4, 0, White) || isTheatened(5, 0, White) ||
 				    isTheatened(6, 0, White)) {
 					return 0;
 				}
@@ -416,12 +570,9 @@ int Game::shortCastling() {
 		}
 
 	} else {
-		if (piecesB[4]->hasMoved == false &&
-		    piecesB[7]->hasMoved == false) {
-			if (board[5][7].piece == nullptr &&
-			    board[6][7].piece == nullptr) {
-				if (isTheatened(4, 7, Black) ||
-				    isTheatened(5, 7, Black) ||
+		if (piecesB[4]->hasMoved == false && piecesB[7]->hasMoved == false) {
+			if (board[5][7].piece == nullptr && board[6][7].piece == nullptr) {
+				if (isTheatened(4, 7, Black) || isTheatened(5, 7, Black) ||
 				    isTheatened(6, 7, Black)) {
 					return 0;
 				}
@@ -437,15 +588,11 @@ int Game::shortCastling() {
 }
 int Game::longCastling() {
 	if (turn == White) {
-		if (piecesW[4]->hasMoved == false &&
-		    piecesW[0]->hasMoved == false) {
-			if (board[1][0].piece == nullptr &&
-			    board[2][0].piece == nullptr &&
+		if (piecesW[4]->hasMoved == false && piecesW[0]->hasMoved == false) {
+			if (board[1][0].piece == nullptr && board[2][0].piece == nullptr &&
 			    board[3][0].piece == nullptr) {
-				if (isTheatened(4, 0, White) ||
-				    isTheatened(3, 0, White) ||
-				    isTheatened(2, 0, White) ||
-					isTheatened(1, 0, White)) {
+				if (isTheatened(4, 0, White) || isTheatened(3, 0, White) ||
+				    isTheatened(2, 0, White) || isTheatened(1, 0, White)) {
 					return 0;
 				}
 				board[4][0].piece->posX = 2;
@@ -457,15 +604,11 @@ int Game::longCastling() {
 		}
 
 	} else {
-		if (piecesB[4]->hasMoved == false &&
-		    piecesB[0]->hasMoved == false) {
-			if (board[1][7].piece == nullptr &&
-			    board[2][7].piece == nullptr &&
+		if (piecesB[4]->hasMoved == false && piecesB[0]->hasMoved == false) {
+			if (board[1][7].piece == nullptr && board[2][7].piece == nullptr &&
 			    board[3][7].piece == nullptr) {
-				if (isTheatened(4, 7, Black) ||
-				    isTheatened(3, 7, Black) ||
-				    isTheatened(2, 7, Black) ||
-					isTheatened(1, 7, Black)) {
+				if (isTheatened(4, 7, Black) || isTheatened(3, 7, Black) ||
+				    isTheatened(2, 7, Black) || isTheatened(1, 7, Black)) {
 					return 0;
 				}
 				board[4][7].piece->posX = 2;
@@ -480,6 +623,9 @@ int Game::longCastling() {
 }
 void Game::play() {
 	do {
+		if (check) {
+			cout << "check" << endl;
+		}
 		getmove();
 		if (move == "/quit") {
 			state = quit;
@@ -487,36 +633,87 @@ void Game::play() {
 		}
 		if (move == "O-O") {
 			if (shortCastling()) {
-				break;
-			}
-		} 
-		if(move == "O-O-O") {
-			if (longCastling()) {
+			cout << "short castling" << endl;
 				break;
 			}
 		}
-		else {
+		if (move == "O-O-O") {
+			if (longCastling()) {
+			cout << "long castling" << endl;
+				break;
+			}
+		} else {
 			moveInt[0] = moveToFile(0);
 			moveInt[1] = moveToRank(1);
 			moveInt[2] = moveToFile(2);
 			moveInt[3] = moveToRank(3);
 		}
 	} while (!movePiece());
-	if(isCheck(turn)){
-		cout << "le mouvement met en echec" << endl;
+	updateBoard();
+	if (isCheck(turn)) {
+cout << "This move put in check" << endl;
 		undoMove();
 		play();
 		return;
 	}
-	
-	if(isCheck(!turn)){
-		cout << "echec" << endl;
-		check = true;
+	while (!promotePawn()) {
 	}
+	file << move << endl;
 	savePositions();
+	if (isCheck(!turn)) {
+		if (isCheckMate(!turn)) {
+			if (turn == White) {
+				state = WhiteWin;
+			} else {
+				state = BlackWin;
+			}
+			return;
+		}
+		check = true;
+	} else {
+		if (isStalemate(!turn)) {
+			state = Stalemate;
+			return;
+		}
+	}
 	turn = !turn;
 }
+void Game::quitGame() {
+	updateBoard();
+	switch (state) {
+	case WhiteWin:
+		cout << "White Win" << endl;
+		break;
+	case BlackWin:
+		cout << "Black Win" << endl;
+		break;
+	case Stalemate:
+		cout << "Stalemate" << endl;
+		break;
+	case quit:
+		cout << "Game quited" << endl;
+		break;
+	default:
+		break;
+	}
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (board[j][i].piece != nullptr) {
+				if (board[j][i].piece->color == White) {
+					cout << "W";
+				} else {
+					cout << "B";
+				}
 
+				cout << board[j][i].piece->id;
+			}
+			if (j != 7 || i != 7) {
+				cout << ",";
+			}
+		}
+	}
+	cout << endl;
+}
 void Game::getmove() {
 	if (turn) {
 		cout << "White -> ";
@@ -550,8 +747,28 @@ Game::Game() {
 		piecesB[i + 8] = new Piece(Pawn, Black, i, rank_7);
 		piecesW[i + 8] = new Piece(Pawn, White, i, rank_2);
 	}
-	piecesB[11]->posY = rank_6;
-	piecesW[12]->posY = rank_3;
+	ofstream file("partie.txt");
+
+	/* 	for(int i(0); i < 16; i++){
+			piecesB[i]->posX = -1;
+			piecesB[i]->posY = -1;
+		} */
+	/* 	piecesB[4]->posX = file_a;
+		piecesB[4]->posY = rank_8;
+		piecesB[8]->posX = file_a;
+		piecesB[8]->posY = rank_5;
+		piecesW[0]->posX = file_b;
+		piecesW[0]->posY = rank_3;
+		piecesW[7]->posY = rank_7; */
+	/* 	piecesB[8]->posY = rank_3;
+		piecesW[8]->posY = rank_7;
+		piecesB[0]->posY = rank_4;
+		piecesB[1]->posY = rank_4;
+		piecesB[2]->posY = rank_4;
+		piecesB[3]->posY = rank_4;
+		piecesW[0]->posY = rank_8;
+		piecesB[11]->posY = rank_3; */
+
 	savePositions();
 	updateBoard();
 }
@@ -580,21 +797,22 @@ void Game::updateBoard() {
 	}
 	for (int i(0); i < 16; i++) {
 		if (piecesB[i]->posX != -1 && piecesB[i]->posY != -1) {
-			board[piecesB[i]->posX][piecesB[i]->posY].setSquare(
-			    piecesB[i]);
+			board[piecesB[i]->posX][piecesB[i]->posY].setSquare(piecesB[i]);
 		}
 		if (piecesW[i]->posX != -1 && piecesW[i]->posY != -1) {
-			board[piecesW[i]->posX][piecesW[i]->posY].setSquare(
-			    piecesW[i]);
+			board[piecesW[i]->posX][piecesW[i]->posY].setSquare(piecesW[i]);
 		}
 	}
 }
 
 int main() {
 	Game game;
+	
 	while (!game.getState()) {
 		printBoard(&game);
 		game.play();
 	}
+	printBoard(&game);
+	game.quitGame();
 	return 1;
 }
