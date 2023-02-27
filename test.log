@@ -1,0 +1,66 @@
+data/1-leg-bish-knight.txt
+   ref:[[0;32mwR,wN,,wQ,wK,wB,,wR,wP,wP,wP,,,wP,wP,wP,,,,wP,,wN,,,,,,,wP,,,,,,,,bP,,wB,,,,bN,,,bN,,,bP,bP,bP,bP,bB,bP,bP,bP,bR,,bB,bQ,bK,,,bR,[0m]
+   you:[[0;31mdata/1-leg-bish-knight.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-leg-bish-knight.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-leg-bish-knight.txt (around move 127)
+data/1-leg-bishop-1.txt
+   ref:[[0;32mwR,wN,,wQ,wK,,wN,wR,wP,wP,wP,,wB,wP,wP,wP,,,,,wP,,,,,,,wP,,,,,,,,bP,,,,,,,,,,bP,,bB,bP,bP,bP,bB,bP,bP,,bP,bR,bN,,bQ,bK,,,bR,[0m]
+   you:[[0;31mdata/1-leg-bishop-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-leg-bishop-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-leg-bishop-1.txt (around move 127)
+data/1-leg-knight-1.txt
+   ref:[[0;32mwR,,wB,wQ,wK,wB,,wR,wP,wP,wP,wP,,wP,wP,wP,,,,,,wN,,,,,,,wP,,,,,,,,,,,,,,bN,,,bP,,,bP,bP,bP,,,bP,bP,bP,bR,,bB,bQ,bK,bB,,bR,[0m]
+   you:[[0;31mdata/1-leg-knight-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-leg-knight-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-leg-knight-1.txt (around move 127)
+data/1-leg-obstacle.txt
+   ref:[[0;32mwR,wN,wB,wQ,wK,wB,,wR,wP,wP,wP,wP,,wP,wP,wP,,,,,wP,wN,,,,,,,,,,,,,,bP,,,,,,,,,,bN,,,bP,bP,bP,,bP,bP,bP,bP,bR,bN,bB,bQ,bK,bB,,bR,[0m]
+   you:[[0;31mdata/1-leg-obstacle.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-leg-obstacle.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-leg-obstacle.txt (around move 127)
+data/1-leg-pawn-1.txt
+   ref:[[0;32mwR,wN,wB,wQ,wK,wB,wN,wR,wP,wP,,,,,wP,wP,,,,wP,,wP,,,,,,bP,,,,,,,,,wP,,,,,,,,,,,,bP,bP,bP,,,bP,bP,bP,bR,bN,bB,bQ,bK,bB,bN,bR,[0m]
+   you:[[0;31mdata/1-leg-pawn-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-leg-pawn-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-leg-pawn-1.txt (around move 127)
+data/1-ill-bishop-1.txt
+   ref:[[0;32mwR,wN,,wQ,wK,wB,wN,wR,wP,wP,wP,,wP,wP,wP,wP,,,,,,,,,,,,wP,,,,wB,,,,bP,,bB,,,,,,,,bP,,,bP,bP,bP,,bP,,bP,bP,bR,bN,,bQ,bK,bB,bN,bR,[0m]
+   you:[[0;31mdata/1-ill-bishop-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-ill-bishop-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-ill-bishop-1.txt (around move 127)
+data/1-ill-diagonal-obstacle.txt
+   ref:[[0;32mwR,wN,,,wK,wB,wN,wR,wP,wP,,,wP,wP,wP,wP,,,wP,wP,,,,,wQ,,,,,wB,,,bQ,,,,,bB,,,,,bP,bP,,,,,bP,bP,,,bP,bP,bP,bP,bR,bN,,,bK,bB,bN,bR,[0m]
+   you:[[0;31mdata/1-ill-diagonal-obstacle.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-ill-diagonal-obstacle.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-ill-diagonal-obstacle.txt (around move 127)
+data/1-ill-knight-1.txt
+   ref:[[0;32mwR,,wB,wQ,wK,wB,wN,wR,wP,wP,wP,wP,wP,wP,wP,wP,,,,,,,,,,,,,wN,,,,,,,,,,,,,,,,,bN,,,bP,bP,bP,bP,bP,bP,bP,bP,bR,bN,bB,bQ,bK,bB,,bR,[0m]
+   you:[[0;31mdata/1-ill-knight-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-ill-knight-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-ill-knight-1.txt (around move 127)
+data/1-ill-line-obstacle.txt
+   ref:[[0;32m,wN,wB,wQ,wK,wB,wN,wR,,,wP,,wP,,wP,wP,,wP,,wP,wR,wP,,,wP,,,,,,,,bP,,,,,,,,,,,bP,bR,bP,,,,bP,bP,,bP,,bP,bP,,bN,bB,bQ,bK,bB,bN,bR,[0m]
+   you:[[0;31mdata/1-ill-line-obstacle.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-ill-line-obstacle.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-ill-line-obstacle.txt (around move 127)
+data/1-ill-pawn-1.txt
+   ref:[[0;32mwR,wN,wB,wQ,wK,,wN,wR,wP,wP,wP,,,wP,wP,wP,,,,,,,,,,,,,wP,,,,,,bP,wP,bP,bP,,,bP,,,,,,,,bP,,,bP,,,bP,bP,bR,bN,bB,bQ,bK,bB,bN,bR,[0m]
+   you:[[0;31mdata/1-ill-pawn-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-ill-pawn-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-ill-pawn-1.txt (around move 127)
+data/1-ill-rook-1.txt
+   ref:[[0;32m,wN,wB,wQ,wK,wB,wN,wR,,wP,wP,wP,wP,wP,wP,wP,,,,,,,,,,,,,,wR,,,bP,wP,,,,,,,,,,,,,,,bR,,bP,bP,bP,bP,bP,bP,,bN,bB,bQ,bK,bB,bN,bR,[0m]
+   you:[[0;31mdata/1-ill-rook-1.txt[0m]
+   ref:[[0;32m?-?[0m]
+   you:[[0;31mdata/1-ill-rook-1.txt[0m]
+ -> [0;31m[test error] (exit code=127) [0m chess ended in error for game data/1-ill-rook-1.txt (around move 127)

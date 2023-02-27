@@ -1,10 +1,11 @@
 #include <cstddef>
+#include <cstdio>
 #include <cstring>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <type_traits>
 #include <vector>
-#include <fstream>
 using namespace std;
 
 enum Color { Black = 0, White = 1 };
@@ -138,7 +139,7 @@ class Game {
 	int previousState[32][2];  // 0 = Enpassant, 1 = hasMoved
 
        public:
-	ofstream file;
+	ofstream filePartie;
 	int moveInt[4];
 	Game();
 	string move;
@@ -170,7 +171,7 @@ class Game {
 			delete piecesB[i];
 			delete piecesW[i];
 		}
-		file.close();
+		filePartie.close();
 	}
 };
 void Game::savePositions() {
@@ -633,13 +634,13 @@ void Game::play() {
 		}
 		if (move == "O-O") {
 			if (shortCastling()) {
-			cout << "short castling" << endl;
+				cout << "short castling" << endl;
 				break;
 			}
 		}
 		if (move == "O-O-O") {
 			if (longCastling()) {
-			cout << "long castling" << endl;
+				cout << "long castling" << endl;
 				break;
 			}
 		} else {
@@ -651,14 +652,14 @@ void Game::play() {
 	} while (!movePiece());
 	updateBoard();
 	if (isCheck(turn)) {
-cout << "This move put in check" << endl;
+		cout << "This move put in check" << endl;
 		undoMove();
 		play();
 		return;
 	}
 	while (!promotePawn()) {
 	}
-	file << move << endl;
+	filePartie << move << endl;
 	savePositions();
 	if (isCheck(!turn)) {
 		if (isCheckMate(!turn)) {
@@ -700,19 +701,35 @@ void Game::quitGame() {
 		for (int j = 0; j < 8; j++) {
 			if (board[j][i].piece != nullptr) {
 				if (board[j][i].piece->color == White) {
-					cout << "W";
+					cout << "w";
 				} else {
-					cout << "B";
+					cout << "b";
 				}
 
 				cout << board[j][i].piece->id;
 			}
-			if (j != 7 || i != 7) {
-				cout << ",";
-			}
+			cout << ",";
 		}
 	}
-	cout << endl;
+	switch (state) {
+	case WhiteWin:
+		cout << " 1-0" << endl;
+		break;
+	case BlackWin:
+		cout << " 0-1" << endl;
+		break;
+	case Stalemate:
+		cout << " 0-0" << endl;
+		break;
+	case quit:
+		cout << " ?-?" << endl;
+		break;
+	default:
+		cout << " ?-?" << endl;
+		break;
+	}
+	
+
 }
 void Game::getmove() {
 	if (turn) {
@@ -747,7 +764,7 @@ Game::Game() {
 		piecesB[i + 8] = new Piece(Pawn, Black, i, rank_7);
 		piecesW[i + 8] = new Piece(Pawn, White, i, rank_2);
 	}
-	ofstream file("partie.txt");
+	filePartie.open("partie.txt");
 
 	/* 	for(int i(0); i < 16; i++){
 			piecesB[i]->posX = -1;
@@ -774,6 +791,7 @@ Game::Game() {
 }
 void printBoard(Game *game) {
 	game->updateBoard();
+
 	for (int i(0); i < 64; i++) {
 		game->board[i / 8][i % 8].updateUtf();
 	}
@@ -807,7 +825,7 @@ void Game::updateBoard() {
 
 int main() {
 	Game game;
-	
+
 	while (!game.getState()) {
 		printBoard(&game);
 		game.play();

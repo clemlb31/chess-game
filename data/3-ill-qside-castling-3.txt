@@ -1,0 +1,40 @@
+# Optional test (hard)
+# test a queen-side castling that should be rejected since  
+# one of the square between King and Rook is threaten by
+# an ennemy piece.
+#
+#=== PGN Format ===
+# 1. b3 d5
+# 2. Bb2 Nf6
+# 3. Nf3 Bf5
+# 4. c4 e5
+# 5.  Be7
+# 6. d4 O-O
+# 7. Nc3 Nd7
+# 8. Qd2 Nb6
+# 9. O-O-O ?-?
+# === Raw Format ===
+b2b3
+d7d5
+c1b2
+g8f6
+g1f3
+c8f5
+c2c4
+e7e5
+d2d3
+d2d4
+f8e7
+d2d4
+O-O
+b1c3
+b8d7
+d1d2
+d7b6
+# next move should be rejected since one square (b2) of the queen side
+# castling is under the threat of black bishop Bf5.
+O-O-O
+
+/quit
+
+wR,,,,wK,wB,,wR,wP,wB,,wQ,wP,wP,wP,wP,,wP,wN,,,wN,,,,,wP,wP,,,,,,,,bP,bP,bB,,,,bN,,,,bN,,,bP,bP,bP,,bB,bP,bP,bP,bR,,,bQ,,bR,bK,, ?-?
