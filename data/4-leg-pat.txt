@@ -154,6 +154,8 @@ c8c1
 # Si blanc prend la tour noire non protegee 68. Qb6xd8 alors c'est pat.
 #
 b6d8
+c1c5
+d4c5
 # == PAT ===
 /quit
 # --------- Voici les coups ayant été vraiment joues, reprenant à partir de 68. d5
@@ -176,4 +178,4 @@ b6d8
 # f2f3
 #/quit
 
-,,bQ,,,,,,,,,,,,,,,,,,,wP,,wK,,,,wP,,,wP,,wP,,,,,wP,,wP,bP,,,,,bP,,bP,,,,,wR,,bP,bK,,,,wQ,,,,, 1/2-1/2
+,,,,,,,,,,,,,,,,,,,,,wP,,wK,,,,,,,wP,,wP,,wP,,,wP,,wP,bP,,,,,bP,,bP,,,,,wR,,bP,bK,,,,wQ,,,,, 1/2-1/2

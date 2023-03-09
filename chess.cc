@@ -1,78 +1,12 @@
-#include <cstddef>
-#include <cstdio>
-#include <cstring>
-#include <fstream>
+#include "chess.h"
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <type_traits>
-#include <vector>
 using namespace std;
 
-enum Color { Black = 0, White = 1 };
-enum PieceType : char {
-	Rook = 'R',
-	Bishop = 'B',
-	Knight = 'N',
-	King = 'K',
-	Queen = 'Q',
-	Pawn = 'P'
 
-};
 
-enum File {
-	file_a = 0,
-	file_b = 1,
-	file_c = 2,
-	file_d = 3,
-	file_e = 4,
-	file_f = 5,
-	file_g = 6,
-	file_h = 7
-};
-enum Rank {
-	rank_1 = 0,
-	rank_2 = 1,
-	rank_3 = 2,
-	rank_4 = 3,
-	rank_5 = 4,
-	rank_6 = 5,
-	rank_7 = 6,
-	rank_8 = 7,
-};
-enum GameState { inProgess = 0, BlackWin = 1, WhiteWin = 2, Stalemate = 3, quit = 4 };
-
-enum errorMove {
-	noError = 0,
-	wrongColor = 1,
-	wrongPiece = 2,
-	wrongMove = 3,
-	wrongPath = 4,
-	wrongCastling = 5,
-	wrongPromotion = 6
-};
-
-class Piece {
-       public:
-	PieceType id;
-	Color color;
-	int posX;
-	int posY;
-	bool EnPassant;
-	bool hasMoved;
-	Piece(PieceType id, Color color, int X, int Y)
-	    : id(id), color(color), posX(X), posY(Y), EnPassant(0), hasMoved(false) {}
-	string toUtf();
-};
-
-class Square {
-       private:
-       public:
-	Piece *piece;  // NULL if no piece
-	void setSquare(class Piece *pointer) { this->piece = pointer; }
-	string utf;
-	void updateUtf();
-};
-
+// retourne le caractère unicode de la pièce
 string Piece::toUtf() {
 	switch (id) {
 	case Queen:
@@ -122,6 +56,7 @@ string Piece::toUtf() {
 	}
 }
 
+// met à jour le caractère unicode de la case
 void Square::updateUtf() {
 	if (piece == nullptr) {
 		utf = " ";
@@ -130,50 +65,17 @@ void Square::updateUtf() {
 	}
 }
 
-class Game {
-       private:
-	GameState state;
-	Piece *piecesW[16];
-	Piece *piecesB[16];
-	int prevousPositions[32][2];
-	int previousState[32][2];  // 0 = Enpassant, 1 = hasMoved
-
-       public:
-	ofstream filePartie;
-	int moveInt[4];
-	Game();
-	string move;
-	bool turn;
-	Square board[8][8];
-	int isTheatened(int x, int y, Color color);
-	void updateBoard();
-	int moveToFile(int nb);
-	int moveToRank(int nb);
-	void resetEnPassant();
-	void savePositions();
-	void undoMove();
-	bool check;
-	int isCheckMate(int color);
-	int isCheck(int color);
-	int isStalemate(int color);
-	int getState() { return state; }
-	void getmove();
-	void play();
-	int moveIsLegal(int x1, int y1, int x2, int y2);
-	int movePiece();
-	int shortCastling();
-	int longCastling();
-	int pathIsClear(int x1, int y1, int x2, int y2);
-	void quitGame();
-	int promotePawn();
-	~Game() {
-		for (int i(0); i < 16; i++) {
-			delete piecesB[i];
-			delete piecesW[i];
-		}
-		filePartie.close();
+// Destructeur de la classe Game
+Game::~Game() {
+	for (int i(0); i < 16; i++) {
+		delete piecesB[i];
+		delete piecesW[i];
 	}
-};
+	filePartie.close();
+}
+
+int Game::getState() { return state; }
+
 void Game::savePositions() {
 	for (int i(0); i < 16; i++) {
 		prevousPositions[i][0] = piecesB[i]->posX;
@@ -202,12 +104,14 @@ void Game::undoMove() {
 int Game::isTheatened(int x, int y, Color color) {
 	if (color == White) {
 		for (int i(0); i < 16; i++) {
+			if (piecesB[i]->posX == -1) continue;
 			if (moveIsLegal(piecesB[i]->posX, piecesB[i]->posY, x, y)) {
 				return 1;
 			}
 		}
 	} else {
 		for (int i(0); i < 16; i++) {
+			if (piecesW[i]->posX == -1) continue;
 			if (moveIsLegal(piecesW[i]->posX, piecesW[i]->posY, x, y)) {
 				return 1;
 			}
@@ -593,13 +497,13 @@ int Game::longCastling() {
 			if (board[1][0].piece == nullptr && board[2][0].piece == nullptr &&
 			    board[3][0].piece == nullptr) {
 				if (isTheatened(4, 0, White) || isTheatened(3, 0, White) ||
-				    isTheatened(2, 0, White) || isTheatened(1, 0, White)) {
+				    isTheatened(2, 0, White)) {
 					return 0;
 				}
-				board[4][0].piece->posX = 2;
-				board[4][0].piece->posY = 0;
-				board[0][0].piece->posX = 3;
-				board[0][0].piece->posY = 0;
+				piecesW[4]->posX = 2;
+				piecesW[4]->posY = 0;
+				piecesW[0]->posX = 3;
+				piecesW[0]->posY = 0;
 				return 1;
 			}
 		}
@@ -609,7 +513,7 @@ int Game::longCastling() {
 			if (board[1][7].piece == nullptr && board[2][7].piece == nullptr &&
 			    board[3][7].piece == nullptr) {
 				if (isTheatened(4, 7, Black) || isTheatened(3, 7, Black) ||
-				    isTheatened(2, 7, Black) || isTheatened(1, 7, Black)) {
+				    isTheatened(2, 7, Black)) {
 					return 0;
 				}
 				board[4][7].piece->posX = 2;
@@ -622,6 +526,7 @@ int Game::longCastling() {
 	}
 	return 0;
 }
+
 void Game::play() {
 	do {
 		if (check) {
@@ -679,8 +584,11 @@ void Game::play() {
 	}
 	turn = !turn;
 }
+
+// fonction qui termine une partie
 void Game::quitGame() {
 	updateBoard();
+	// affichage du résultat de la partie
 	switch (state) {
 	case WhiteWin:
 		cout << "White Win" << endl;
@@ -697,6 +605,7 @@ void Game::quitGame() {
 	default:
 		break;
 	}
+	// affichage de l'échiquier
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			if (board[j][i].piece != nullptr) {
@@ -711,6 +620,7 @@ void Game::quitGame() {
 			cout << ",";
 		}
 	}
+	// affichage du résultat de la partie
 	switch (state) {
 	case WhiteWin:
 		cout << " 1-0" << endl;
@@ -719,7 +629,7 @@ void Game::quitGame() {
 		cout << " 0-1" << endl;
 		break;
 	case Stalemate:
-		cout << " 0-0" << endl;
+		cout << " 1/2-1/2" << endl;
 		break;
 	case quit:
 		cout << " ?-?" << endl;
@@ -728,9 +638,9 @@ void Game::quitGame() {
 		cout << " ?-?" << endl;
 		break;
 	}
-	
-
 }
+
+// fonction qui permet de récuperer le mouvement du joueur
 void Game::getmove() {
 	if (turn) {
 		cout << "White -> ";
@@ -739,6 +649,9 @@ void Game::getmove() {
 	}
 	cin >> move;
 }
+
+// constructeur de la classe Game
+// initialise les pieces, le plateau et les variables du jeu
 Game::Game() {
 	check = false;
 	turn = 1;
@@ -766,41 +679,23 @@ Game::Game() {
 	}
 	filePartie.open("partie.txt");
 
-	/* 	for(int i(0); i < 16; i++){
-			piecesB[i]->posX = -1;
-			piecesB[i]->posY = -1;
-		} */
-	/* 	piecesB[4]->posX = file_a;
-		piecesB[4]->posY = rank_8;
-		piecesB[8]->posX = file_a;
-		piecesB[8]->posY = rank_5;
-		piecesW[0]->posX = file_b;
-		piecesW[0]->posY = rank_3;
-		piecesW[7]->posY = rank_7; */
-	/* 	piecesB[8]->posY = rank_3;
-		piecesW[8]->posY = rank_7;
-		piecesB[0]->posY = rank_4;
-		piecesB[1]->posY = rank_4;
-		piecesB[2]->posY = rank_4;
-		piecesB[3]->posY = rank_4;
-		piecesW[0]->posY = rank_8;
-		piecesB[11]->posY = rank_3; */
-
 	savePositions();
 	updateBoard();
 }
-void printBoard(Game *game) {
-	game->updateBoard();
+
+// fonction qui affiche le plateau de jeu dans le terminal
+void Game::printBoard() {
+	updateBoard();
 
 	for (int i(0); i < 64; i++) {
-		game->board[i / 8][i % 8].updateUtf();
+		board[i / 8][i % 8].updateUtf();
 	}
 	cout << "    a   b   c   d   e   f   g   h " << endl;
 	cout << "  ┌───┬───┬───┬───┬───┬───┬───┬───┐" << endl;
 	for (int i(7); i >= 0; i--) {
 		cout << i + 1 << " │ ";
 		for (int j(0); j < 8; j++) {
-			cout << game->board[j][i].utf << " │ ";
+			cout << board[j][i].utf << " │ ";
 		}
 		cout << endl;
 		if (i) {
@@ -809,6 +704,8 @@ void printBoard(Game *game) {
 	}
 	cout << "  └───┴───┴───┴───┴───┴───┴───┴───┘" << endl;
 }
+
+// fonction qui met à jour le plateau en fonction des positions des pièces
 void Game::updateBoard() {
 	for (int i(0); i < 64; i++) {
 		board[i / 8][i % 8].setSquare(nullptr);
@@ -824,13 +721,16 @@ void Game::updateBoard() {
 }
 
 int main() {
+	// initialisation
 	Game game;
 
+	// boucle tant que la partie n'est pas finie
 	while (!game.getState()) {
-		printBoard(&game);
+		game.printBoard();
 		game.play();
 	}
-	printBoard(&game);
+	// affichage du plateau final et du résultat
+	game.printBoard();
 	game.quitGame();
-	return 1;
+	return 0;
 }
