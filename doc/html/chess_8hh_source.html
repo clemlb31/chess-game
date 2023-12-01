@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jeu d&#39;echec:  Fichier source de chess.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Jeu d&#39;echec
+   </div>
+   <div id="projectbrief">Creation d&#39;un jeu d&#39;echec</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('chess_8hh_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">chess.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="chess_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// enum pour une meilleur lisibilité</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd">    7</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> { <a class="code hl_enumvalue" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd">Black</a> = 0, <a class="code hl_enumvalue" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094">White</a> = 1 };</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">    9</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a> : <span class="keywordtype">char</span> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">   10</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a> = <span class="charliteral">&#39;R&#39;</span>,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">   11</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a> = <span class="charliteral">&#39;B&#39;</span>,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">   12</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a> = <span class="charliteral">&#39;N&#39;</span>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">   13</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a> = <span class="charliteral">&#39;K&#39;</span>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">   14</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a> = <span class="charliteral">&#39;Q&#39;</span>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a> = <span class="charliteral">&#39;P&#39;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">   17</a></span>};</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56">   19</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56">File</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b">   20</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b">file_a</a> = 0,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9">   21</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9">file_b</a> = 1,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311">   22</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311">file_c</a> = 2,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd">   23</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd">file_d</a> = 3,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123">   24</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123">file_e</a> = 4,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5">   25</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5">file_f</a> = 5,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741">   26</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741">file_g</a> = 6,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b">file_h</a> = 7</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b">   28</a></span>};</div>
+</div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbed">   29</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6">   30</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6">rank_1</a> = 0,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d">   31</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d">rank_2</a> = 1,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265">   32</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265">rank_3</a> = 2,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d">   33</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d">rank_4</a> = 3,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d">   34</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d">rank_5</a> = 4,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714">   35</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714">rank_6</a> = 5,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59">   36</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59">rank_7</a> = 6,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866">   37</a></span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866">rank_8</a> = 7,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433">   40</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> { <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146">inProgess</a> = 0, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433">BlackWin</a> = 1, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7">WhiteWin</a> = 2, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a">Stalemate</a> = 3, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335">quit</a> = 4 };</div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a></div><div class="ttdeci">GameState</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335">quit</a></div><div class="ttdeci">@ quit</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433">BlackWin</a></div><div class="ttdeci">@ BlackWin</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a">Stalemate</a></div><div class="ttdeci">@ Stalemate</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7">WhiteWin</a></div><div class="ttdeci">@ WhiteWin</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146">inProgess</a></div><div class="ttdeci">@ inProgess</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a></div><div class="ttdeci">PieceType</div><div class="ttdef"><b>Definition</b> chess.hh:9</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a></div><div class="ttdeci">@ King_</div><div class="ttdef"><b>Definition</b> chess.hh:13</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a></div><div class="ttdeci">@ Queen_</div><div class="ttdef"><b>Definition</b> chess.hh:14</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a></div><div class="ttdeci">@ Knight_</div><div class="ttdef"><b>Definition</b> chess.hh:12</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a></div><div class="ttdeci">@ Pawn_</div><div class="ttdef"><b>Definition</b> chess.hh:15</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a></div><div class="ttdeci">@ Bishop_</div><div class="ttdef"><b>Definition</b> chess.hh:11</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a></div><div class="ttdeci">@ Rook_</div><div class="ttdef"><b>Definition</b> chess.hh:10</div></div>
+<div class="ttc" id="achess_8hh_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdef"><b>Definition</b> chess.hh:7</div></div>
+<div class="ttc" id="achess_8hh_html_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094"><div class="ttname"><a href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094">White</a></div><div class="ttdeci">@ White</div><div class="ttdef"><b>Definition</b> chess.hh:7</div></div>
+<div class="ttc" id="achess_8hh_html_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd"><div class="ttname"><a href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd">Black</a></div><div class="ttdeci">@ Black</div><div class="ttdef"><b>Definition</b> chess.hh:7</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbed"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a></div><div class="ttdeci">Rank</div><div class="ttdef"><b>Definition</b> chess.hh:29</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d">rank_5</a></div><div class="ttdeci">@ rank_5</div><div class="ttdef"><b>Definition</b> chess.hh:34</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265">rank_3</a></div><div class="ttdeci">@ rank_3</div><div class="ttdef"><b>Definition</b> chess.hh:32</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59">rank_7</a></div><div class="ttdeci">@ rank_7</div><div class="ttdef"><b>Definition</b> chess.hh:36</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6">rank_1</a></div><div class="ttdeci">@ rank_1</div><div class="ttdef"><b>Definition</b> chess.hh:30</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714">rank_6</a></div><div class="ttdeci">@ rank_6</div><div class="ttdef"><b>Definition</b> chess.hh:35</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d">rank_2</a></div><div class="ttdeci">@ rank_2</div><div class="ttdef"><b>Definition</b> chess.hh:31</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d">rank_4</a></div><div class="ttdeci">@ rank_4</div><div class="ttdef"><b>Definition</b> chess.hh:33</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866">rank_8</a></div><div class="ttdeci">@ rank_8</div><div class="ttdef"><b>Definition</b> chess.hh:37</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56">File</a></div><div class="ttdeci">File</div><div class="ttdef"><b>Definition</b> chess.hh:19</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741">file_g</a></div><div class="ttdeci">@ file_g</div><div class="ttdef"><b>Definition</b> chess.hh:26</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b">file_h</a></div><div class="ttdeci">@ file_h</div><div class="ttdef"><b>Definition</b> chess.hh:27</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9">file_b</a></div><div class="ttdeci">@ file_b</div><div class="ttdef"><b>Definition</b> chess.hh:21</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311">file_c</a></div><div class="ttdeci">@ file_c</div><div class="ttdef"><b>Definition</b> chess.hh:22</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b">file_a</a></div><div class="ttdeci">@ file_a</div><div class="ttdef"><b>Definition</b> chess.hh:20</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd">file_d</a></div><div class="ttdeci">@ file_d</div><div class="ttdef"><b>Definition</b> chess.hh:23</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123">file_e</a></div><div class="ttdeci">@ file_e</div><div class="ttdef"><b>Definition</b> chess.hh:24</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5">file_f</a></div><div class="ttdeci">@ file_f</div><div class="ttdef"><b>Definition</b> chess.hh:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="chess_8hh.html">chess.hh</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

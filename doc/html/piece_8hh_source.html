@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jeu d&#39;echec:  Fichier source de piece.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Jeu d&#39;echec
+   </div>
+   <div id="projectbrief">Creation d&#39;un jeu d&#39;echec</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('piece_8hh_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">piece.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="piece_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="chess_8hh.html">chess.hh</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">class </span><a class="code hl_class" href="class_game.html">Game</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_piece.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">   15</a></span>    <a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_piece.html#a789dc9662b5397812e1abdf55d9ca2d3">   20</a></span>    <a class="code hl_enumeration" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a> <a class="code hl_variable" href="class_piece.html#a789dc9662b5397812e1abdf55d9ca2d3">id</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_piece.html#aa08df3bf50f511dde709d9cef8aeb319">   25</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_piece.html#aa08df3bf50f511dde709d9cef8aeb319">posX</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_piece.html#ae3187c923907e0b19c02539af49194c4">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_piece.html#ae3187c923907e0b19c02539af49194c4">posY</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_piece.html#abf10691ada630b75d0602d54efb05f3d">   35</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_piece.html#abf10691ada630b75d0602d54efb05f3d">EnPassant</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_piece.html#a03bb302d7c5628b43c76f52a60688b0b">   40</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_piece.html#a03bb302d7c5628b43c76f52a60688b0b">hasMoved</a>;</div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_piece.html#a92503b9e853fba2065f477e95cd04197">   49</a></span>    <a class="code hl_function" href="class_piece.html#a92503b9e853fba2065f477e95cd04197">Piece</a>(<a class="code hl_enumeration" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a> type, <a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        : <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>(<a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>), <a class="code hl_variable" href="class_piece.html#a789dc9662b5397812e1abdf55d9ca2d3">id</a>(type), <a class="code hl_variable" href="class_piece.html#aa08df3bf50f511dde709d9cef8aeb319">posX</a>(X), <a class="code hl_variable" href="class_piece.html#ae3187c923907e0b19c02539af49194c4">posY</a>(Y), <a class="code hl_variable" href="class_piece.html#abf10691ada630b75d0602d54efb05f3d">EnPassant</a>(0), <a class="code hl_variable" href="class_piece.html#a03bb302d7c5628b43c76f52a60688b0b">hasMoved</a>(false) {}</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_piece.html#a1fa10b0883b6cd5f0862216a4c202e36">   55</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_piece.html#a1fa10b0883b6cd5f0862216a4c202e36">~Piece</a>() {}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_piece.html#a2fd93cac961d80fb5b9c986f2f1e38d6">   64</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_piece.html#a2fd93cac961d80fb5b9c986f2f1e38d6">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g) = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_piece.html#ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe">   70</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code hl_function" href="class_piece.html#ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe">toUtf</a>() = 0;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_pawn.html">   76</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pawn.html">Pawn</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_pawn.html#a34e624dd357306bbc3e3ea0a415b779a">   78</a></span>    <a class="code hl_function" href="class_pawn.html#a34e624dd357306bbc3e3ea0a415b779a">Pawn</a>(<a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y) : <a class="code hl_class" href="class_piece.html">Piece</a>(<a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a>, <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, X, Y) {}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_pawn.html#af263b31ffb6ca6f3724780989b137450">toUtf</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_pawn.html#a1c214d1140b9e6afcfeac8d2350d36b1">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="};">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_rook.html">   86</a></span><span class="keyword">class </span><a class="code hl_class" href="class_rook.html">Rook</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_rook.html#a9b3497a00d25dc3452301bfcf1a9367b">   88</a></span>    <a class="code hl_function" href="class_rook.html#a9b3497a00d25dc3452301bfcf1a9367b">Rook</a>(<a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y) : <a class="code hl_class" href="class_piece.html">Piece</a>(<a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a>, <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, X, Y) {}</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_rook.html#a79c2cc36c45d1d30c7b3c4b5f74ece2c">toUtf</a>();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_rook.html#aeacc37f00c9497be6332f2ff538cee83">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="};">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_bishop.html">   96</a></span><span class="keyword">class </span><a class="code hl_class" href="class_bishop.html">Bishop</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_bishop.html#a529b0119d51fc5cc53c39a4159da0680">   98</a></span>    <a class="code hl_function" href="class_bishop.html#a529b0119d51fc5cc53c39a4159da0680">Bishop</a>(<a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y) : <a class="code hl_class" href="class_piece.html">Piece</a>(<a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a>, <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, X, Y) {}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_bishop.html#a9bc738eb43a9611fa2f11088abd0a2ee">toUtf</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_bishop.html#a34d4ff8cf70bb5b0300a6cb8077f2e52">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="};">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_knight.html">  106</a></span><span class="keyword">class </span><a class="code hl_class" href="class_knight.html">Knight</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="class_knight.html#a0aa5cc7783c88dfd6e619b5c97fb37b8">  108</a></span>    <a class="code hl_function" href="class_knight.html#a0aa5cc7783c88dfd6e619b5c97fb37b8">Knight</a>(<a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y) : <a class="code hl_class" href="class_piece.html">Piece</a>(<a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a>, <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, X, Y) {}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_knight.html#a00d2d7ff1bbf8e51d07d7d7799a977af">toUtf</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_knight.html#ad3e89c9350b0f10fa8b76b1a4f16c5cf">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="};">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="class_king.html">  116</a></span><span class="keyword">class </span><a class="code hl_class" href="class_king.html">King</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="class_king.html#a7e7c9974fc598c6e0ced24fbf1f76354">  118</a></span>    <a class="code hl_function" href="class_king.html#a7e7c9974fc598c6e0ced24fbf1f76354">King</a>(<a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y) : <a class="code hl_class" href="class_piece.html">Piece</a>(<a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a>, <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, X, Y) {}</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_king.html#a7e4cbf716a4d681f38cefc8503b9379f">toUtf</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_king.html#a7d6e6b021bf4d748a4e136e764c92e4b">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="};">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="class_queen.html">  126</a></span><span class="keyword">class </span><a class="code hl_class" href="class_queen.html">Queen</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_piece.html">Piece</a> {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>       <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="class_queen.html#af3591dd8ba36dea4e09ae1e309a5bc3d">  128</a></span>    <a class="code hl_function" href="class_queen.html#af3591dd8ba36dea4e09ae1e309a5bc3d">Queen</a>(<a class="code hl_enumeration" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, <span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y) : <a class="code hl_class" href="class_piece.html">Piece</a>(<a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a>, <a class="code hl_variable" href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">color</a>, X, Y) {}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_queen.html#ac0001020a207213cf2d6d3fc3f8f3e7a">toUtf</a>();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_queen.html#ad6d28757a181095213663cd6e16ec4b5">isMoveLegal</a>(<span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <a class="code hl_class" href="class_game.html">Game</a> *g);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>};</div>
+</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="ttc" id="achess_8hh_html"><div class="ttname"><a href="chess_8hh.html">chess.hh</a></div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a></div><div class="ttdeci">PieceType</div><div class="ttdef"><b>Definition</b> chess.hh:9</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a></div><div class="ttdeci">@ King_</div><div class="ttdef"><b>Definition</b> chess.hh:13</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a></div><div class="ttdeci">@ Queen_</div><div class="ttdef"><b>Definition</b> chess.hh:14</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a></div><div class="ttdeci">@ Knight_</div><div class="ttdef"><b>Definition</b> chess.hh:12</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a></div><div class="ttdeci">@ Pawn_</div><div class="ttdef"><b>Definition</b> chess.hh:15</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a></div><div class="ttdeci">@ Bishop_</div><div class="ttdef"><b>Definition</b> chess.hh:11</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a></div><div class="ttdeci">@ Rook_</div><div class="ttdef"><b>Definition</b> chess.hh:10</div></div>
+<div class="ttc" id="achess_8hh_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdef"><b>Definition</b> chess.hh:7</div></div>
+<div class="ttc" id="aclass_bishop_html"><div class="ttname"><a href="class_bishop.html">Bishop</a></div><div class="ttdoc">sous classe Bishop qui contient le code utf de la piece et son mouvement</div><div class="ttdef"><b>Definition</b> piece.hh:96</div></div>
+<div class="ttc" id="aclass_bishop_html_a34d4ff8cf70bb5b0300a6cb8077f2e52"><div class="ttname"><a href="class_bishop.html#a34d4ff8cf70bb5b0300a6cb8077f2e52">Bishop::isMoveLegal</a></div><div class="ttdeci">int isMoveLegal(int x2, int y2, Game *g)</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div><div class="ttdef"><b>Definition</b> piece.cc:60</div></div>
+<div class="ttc" id="aclass_bishop_html_a529b0119d51fc5cc53c39a4159da0680"><div class="ttname"><a href="class_bishop.html#a529b0119d51fc5cc53c39a4159da0680">Bishop::Bishop</a></div><div class="ttdeci">Bishop(Color color, int X, int Y)</div><div class="ttdef"><b>Definition</b> piece.hh:98</div></div>
+<div class="ttc" id="aclass_bishop_html_a9bc738eb43a9611fa2f11088abd0a2ee"><div class="ttname"><a href="class_bishop.html#a9bc738eb43a9611fa2f11088abd0a2ee">Bishop::toUtf</a></div><div class="ttdeci">string toUtf()</div><div class="ttdoc">retourne le caractère unicode de la pièce</div><div class="ttdef"><b>Definition</b> piece.cc:40</div></div>
+<div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">Classe Game contenant les informations sur la partie.</div><div class="ttdef"><b>Definition</b> game.hh:9</div></div>
+<div class="ttc" id="aclass_king_html"><div class="ttname"><a href="class_king.html">King</a></div><div class="ttdoc">sous classe King qui contient le code utf de la piece et son mouvement</div><div class="ttdef"><b>Definition</b> piece.hh:116</div></div>
+<div class="ttc" id="aclass_king_html_a7d6e6b021bf4d748a4e136e764c92e4b"><div class="ttname"><a href="class_king.html#a7d6e6b021bf4d748a4e136e764c92e4b">King::isMoveLegal</a></div><div class="ttdeci">int isMoveLegal(int x2, int y2, Game *g)</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div><div class="ttdef"><b>Definition</b> piece.cc:88</div></div>
+<div class="ttc" id="aclass_king_html_a7e4cbf716a4d681f38cefc8503b9379f"><div class="ttname"><a href="class_king.html#a7e4cbf716a4d681f38cefc8503b9379f">King::toUtf</a></div><div class="ttdeci">string toUtf()</div><div class="ttdoc">retourne le caractère unicode de la pièce</div><div class="ttdef"><b>Definition</b> piece.cc:5</div></div>
+<div class="ttc" id="aclass_king_html_a7e7c9974fc598c6e0ced24fbf1f76354"><div class="ttname"><a href="class_king.html#a7e7c9974fc598c6e0ced24fbf1f76354">King::King</a></div><div class="ttdeci">King(Color color, int X, int Y)</div><div class="ttdef"><b>Definition</b> piece.hh:118</div></div>
+<div class="ttc" id="aclass_knight_html"><div class="ttname"><a href="class_knight.html">Knight</a></div><div class="ttdoc">sous classe Knight qui contient le code utf de la piece et son mouvement</div><div class="ttdef"><b>Definition</b> piece.hh:106</div></div>
+<div class="ttc" id="aclass_knight_html_a00d2d7ff1bbf8e51d07d7d7799a977af"><div class="ttname"><a href="class_knight.html#a00d2d7ff1bbf8e51d07d7d7799a977af">Knight::toUtf</a></div><div class="ttdeci">string toUtf()</div><div class="ttdoc">retourne le caractère unicode de la pièce</div><div class="ttdef"><b>Definition</b> piece.cc:26</div></div>
+<div class="ttc" id="aclass_knight_html_a0aa5cc7783c88dfd6e619b5c97fb37b8"><div class="ttname"><a href="class_knight.html#a0aa5cc7783c88dfd6e619b5c97fb37b8">Knight::Knight</a></div><div class="ttdeci">Knight(Color color, int X, int Y)</div><div class="ttdef"><b>Definition</b> piece.hh:108</div></div>
+<div class="ttc" id="aclass_knight_html_ad3e89c9350b0f10fa8b76b1a4f16c5cf"><div class="ttname"><a href="class_knight.html#ad3e89c9350b0f10fa8b76b1a4f16c5cf">Knight::isMoveLegal</a></div><div class="ttdeci">int isMoveLegal(int x2, int y2, Game *g)</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div><div class="ttdef"><b>Definition</b> piece.cc:80</div></div>
+<div class="ttc" id="aclass_pawn_html"><div class="ttname"><a href="class_pawn.html">Pawn</a></div><div class="ttdoc">sous classe Pawn qui contient le code utf de la piece et son mouvement</div><div class="ttdef"><b>Definition</b> piece.hh:76</div></div>
+<div class="ttc" id="aclass_pawn_html_a1c214d1140b9e6afcfeac8d2350d36b1"><div class="ttname"><a href="class_pawn.html#a1c214d1140b9e6afcfeac8d2350d36b1">Pawn::isMoveLegal</a></div><div class="ttdeci">int isMoveLegal(int x2, int y2, Game *g)</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div><div class="ttdef"><b>Definition</b> piece.cc:95</div></div>
+<div class="ttc" id="aclass_pawn_html_a34e624dd357306bbc3e3ea0a415b779a"><div class="ttname"><a href="class_pawn.html#a34e624dd357306bbc3e3ea0a415b779a">Pawn::Pawn</a></div><div class="ttdeci">Pawn(Color color, int X, int Y)</div><div class="ttdef"><b>Definition</b> piece.hh:78</div></div>
+<div class="ttc" id="aclass_pawn_html_af263b31ffb6ca6f3724780989b137450"><div class="ttname"><a href="class_pawn.html#af263b31ffb6ca6f3724780989b137450">Pawn::toUtf</a></div><div class="ttdeci">string toUtf()</div><div class="ttdoc">retourne le caractère unicode de la pièce</div><div class="ttdef"><b>Definition</b> piece.cc:12</div></div>
+<div class="ttc" id="aclass_piece_html"><div class="ttname"><a href="class_piece.html">Piece</a></div><div class="ttdoc">Classe Piece contenant les informations sur une pièce.</div><div class="ttdef"><b>Definition</b> piece.hh:9</div></div>
+<div class="ttc" id="aclass_piece_html_a03bb302d7c5628b43c76f52a60688b0b"><div class="ttname"><a href="class_piece.html#a03bb302d7c5628b43c76f52a60688b0b">Piece::hasMoved</a></div><div class="ttdeci">bool hasMoved</div><div class="ttdoc">true si la pièce a bougé</div><div class="ttdef"><b>Definition</b> piece.hh:40</div></div>
+<div class="ttc" id="aclass_piece_html_a1fa10b0883b6cd5f0862216a4c202e36"><div class="ttname"><a href="class_piece.html#a1fa10b0883b6cd5f0862216a4c202e36">Piece::~Piece</a></div><div class="ttdeci">virtual ~Piece()</div><div class="ttdoc">Destructeur de la classe Piece.</div><div class="ttdef"><b>Definition</b> piece.hh:55</div></div>
+<div class="ttc" id="aclass_piece_html_a2fd93cac961d80fb5b9c986f2f1e38d6"><div class="ttname"><a href="class_piece.html#a2fd93cac961d80fb5b9c986f2f1e38d6">Piece::isMoveLegal</a></div><div class="ttdeci">virtual int isMoveLegal(int x2, int y2, Game *g)=0</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div></div>
+<div class="ttc" id="aclass_piece_html_a4cf5b29a9e13dcb93b616b11160c2abc"><div class="ttname"><a href="class_piece.html#a4cf5b29a9e13dcb93b616b11160c2abc">Piece::color</a></div><div class="ttdeci">Color color</div><div class="ttdoc">couleur de la pièce</div><div class="ttdef"><b>Definition</b> piece.hh:15</div></div>
+<div class="ttc" id="aclass_piece_html_a789dc9662b5397812e1abdf55d9ca2d3"><div class="ttname"><a href="class_piece.html#a789dc9662b5397812e1abdf55d9ca2d3">Piece::id</a></div><div class="ttdeci">PieceType id</div><div class="ttdoc">type de la pièce</div><div class="ttdef"><b>Definition</b> piece.hh:20</div></div>
+<div class="ttc" id="aclass_piece_html_a92503b9e853fba2065f477e95cd04197"><div class="ttname"><a href="class_piece.html#a92503b9e853fba2065f477e95cd04197">Piece::Piece</a></div><div class="ttdeci">Piece(PieceType type, Color color, int X, int Y)</div><div class="ttdoc">Constructeur de la classe Piece.</div><div class="ttdef"><b>Definition</b> piece.hh:49</div></div>
+<div class="ttc" id="aclass_piece_html_aa08df3bf50f511dde709d9cef8aeb319"><div class="ttname"><a href="class_piece.html#aa08df3bf50f511dde709d9cef8aeb319">Piece::posX</a></div><div class="ttdeci">int posX</div><div class="ttdoc">position en X de la pièce</div><div class="ttdef"><b>Definition</b> piece.hh:25</div></div>
+<div class="ttc" id="aclass_piece_html_abf10691ada630b75d0602d54efb05f3d"><div class="ttname"><a href="class_piece.html#abf10691ada630b75d0602d54efb05f3d">Piece::EnPassant</a></div><div class="ttdeci">bool EnPassant</div><div class="ttdoc">true si la pièce peut être prise en passant</div><div class="ttdef"><b>Definition</b> piece.hh:35</div></div>
+<div class="ttc" id="aclass_piece_html_ae3187c923907e0b19c02539af49194c4"><div class="ttname"><a href="class_piece.html#ae3187c923907e0b19c02539af49194c4">Piece::posY</a></div><div class="ttdeci">int posY</div><div class="ttdoc">position en Y de la pièce</div><div class="ttdef"><b>Definition</b> piece.hh:30</div></div>
+<div class="ttc" id="aclass_piece_html_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe"><div class="ttname"><a href="class_piece.html#ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe">Piece::toUtf</a></div><div class="ttdeci">virtual string toUtf()=0</div><div class="ttdoc">retourne le caractère unicode de la pièce</div></div>
+<div class="ttc" id="aclass_queen_html"><div class="ttname"><a href="class_queen.html">Queen</a></div><div class="ttdoc">sous classe Queen qui contient le code utf de la piece et son mouvement</div><div class="ttdef"><b>Definition</b> piece.hh:126</div></div>
+<div class="ttc" id="aclass_queen_html_ac0001020a207213cf2d6d3fc3f8f3e7a"><div class="ttname"><a href="class_queen.html#ac0001020a207213cf2d6d3fc3f8f3e7a">Queen::toUtf</a></div><div class="ttdeci">string toUtf()</div><div class="ttdoc">retourne le caractère unicode de la pièce</div><div class="ttdef"><b>Definition</b> piece.cc:33</div></div>
+<div class="ttc" id="aclass_queen_html_ad6d28757a181095213663cd6e16ec4b5"><div class="ttname"><a href="class_queen.html#ad6d28757a181095213663cd6e16ec4b5">Queen::isMoveLegal</a></div><div class="ttdeci">int isMoveLegal(int x2, int y2, Game *g)</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div><div class="ttdef"><b>Definition</b> piece.cc:70</div></div>
+<div class="ttc" id="aclass_queen_html_af3591dd8ba36dea4e09ae1e309a5bc3d"><div class="ttname"><a href="class_queen.html#af3591dd8ba36dea4e09ae1e309a5bc3d">Queen::Queen</a></div><div class="ttdeci">Queen(Color color, int X, int Y)</div><div class="ttdef"><b>Definition</b> piece.hh:128</div></div>
+<div class="ttc" id="aclass_rook_html"><div class="ttname"><a href="class_rook.html">Rook</a></div><div class="ttdoc">sous classe Rook qui contient le code utf de la piece et son mouvement</div><div class="ttdef"><b>Definition</b> piece.hh:86</div></div>
+<div class="ttc" id="aclass_rook_html_a79c2cc36c45d1d30c7b3c4b5f74ece2c"><div class="ttname"><a href="class_rook.html#a79c2cc36c45d1d30c7b3c4b5f74ece2c">Rook::toUtf</a></div><div class="ttdeci">string toUtf()</div><div class="ttdoc">retourne le caractère unicode de la pièce</div><div class="ttdef"><b>Definition</b> piece.cc:19</div></div>
+<div class="ttc" id="aclass_rook_html_a9b3497a00d25dc3452301bfcf1a9367b"><div class="ttname"><a href="class_rook.html#a9b3497a00d25dc3452301bfcf1a9367b">Rook::Rook</a></div><div class="ttdeci">Rook(Color color, int X, int Y)</div><div class="ttdef"><b>Definition</b> piece.hh:88</div></div>
+<div class="ttc" id="aclass_rook_html_aeacc37f00c9497be6332f2ff538cee83"><div class="ttname"><a href="class_rook.html#aeacc37f00c9497be6332f2ff538cee83">Rook::isMoveLegal</a></div><div class="ttdeci">int isMoveLegal(int x2, int y2, Game *g)</div><div class="ttdoc">vérifie si le mouvement est légal jusqu'à la case (x2, y2)</div><div class="ttdef"><b>Definition</b> piece.cc:50</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="piece_8hh.html">piece.hh</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

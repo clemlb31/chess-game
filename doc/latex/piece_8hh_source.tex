@@ -1,0 +1,60 @@
+\doxysection{piece.\+hh}
+\hypertarget{piece_8hh_source}{}\label{piece_8hh_source}\mbox{\hyperlink{piece_8hh}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{chess_8hh}{chess.hh}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{PieceType}}\ \mbox{\hyperlink{class_piece_a789dc9662b5397812e1abdf55d9ca2d3}{id}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_piece_abf10691ada630b75d0602d54efb05f3d}{EnPassant}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_piece_a03bb302d7c5628b43c76f52a60688b0b}{hasMoved}};}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_piece_a92503b9e853fba2065f477e95cd04197}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{PieceType}}\ type,\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}(\mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}),\ \mbox{\hyperlink{class_piece_a789dc9662b5397812e1abdf55d9ca2d3}{id}}(type),\ \mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}}(X),\ \mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}}(Y),\ \mbox{\hyperlink{class_piece_abf10691ada630b75d0602d54efb05f3d}{EnPassant}}(0),\ \mbox{\hyperlink{class_piece_a03bb302d7c5628b43c76f52a60688b0b}{hasMoved}}(false)\ \{\}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_piece_a1fa10b0883b6cd5f0862216a4c202e36}{\string~Piece}}()\ \{\}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_piece_a2fd93cac961d80fb5b9c986f2f1e38d6}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g)\ =\ 0;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_piece_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe}{toUtf}}()\ =\ 0;}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00076\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pawn}{Pawn}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_pawn_a34e624dd357306bbc3e3ea0a415b779a}{Pawn}}(\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af}{Pawn\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_pawn_af263b31ffb6ca6f3724780989b137450}{toUtf}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pawn_a1c214d1140b9e6afcfeac8d2350d36b1}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g);}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00086\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rook}{Rook}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_rook_a9b3497a00d25dc3452301bfcf1a9367b}{Rook}}(\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b}{Rook\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_rook_a79c2cc36c45d1d30c7b3c4b5f74ece2c}{toUtf}}();}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_rook_aeacc37f00c9497be6332f2ff538cee83}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g);}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_bishop}{Bishop}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_bishop_a529b0119d51fc5cc53c39a4159da0680}{Bishop}}(\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345}{Bishop\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_bishop_a9bc738eb43a9611fa2f11088abd0a2ee}{toUtf}}();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_bishop_a34d4ff8cf70bb5b0300a6cb8077f2e52}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g);}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00106\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_knight}{Knight}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{class_knight_a0aa5cc7783c88dfd6e619b5c97fb37b8}{Knight}}(\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b}{Knight\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_knight_a00d2d7ff1bbf8e51d07d7d7799a977af}{toUtf}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_knight_ad3e89c9350b0f10fa8b76b1a4f16c5cf}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g);}
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00116\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_king}{King}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_king_a7e7c9974fc598c6e0ced24fbf1f76354}{King}}(\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5}{King\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_king_a7e4cbf716a4d681f38cefc8503b9379f}{toUtf}}();}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_king_a7d6e6b021bf4d748a4e136e764c92e4b}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g);}
+\DoxyCodeLine{00121\ \};}
+\DoxyCodeLine{00126\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_queen}{Queen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_piece}{Piece}}\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{class_queen_af3591dd8ba36dea4e09ae1e309a5bc3d}{Queen}}(\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ \textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y)\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906}{Queen\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_queen_ac0001020a207213cf2d6d3fc3f8f3e7a}{toUtf}}();}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_queen_ad6d28757a181095213663cd6e16ec4b5}{isMoveLegal}}(\textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \mbox{\hyperlink{class_game}{Game}}\ *g);}
+\DoxyCodeLine{00131\ \};}
+\DoxyCodeLine{00132\ }
+
+\end{DoxyCode}

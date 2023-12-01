@@ -1,0 +1,143 @@
+\doxysection{Référence de la classe Bishop}
+\hypertarget{class_bishop}{}\label{class_bishop}\index{Bishop@{Bishop}}
+
+
+sous classe \doxylink{class_bishop}{Bishop} qui contient le code utf de la piece et son mouvement  
+
+
+
+
+{\ttfamily \#include $<$piece.\+hh$>$}
+
+Graphe d\textquotesingle{}héritage de Bishop\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bishop}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bishop_a529b0119d51fc5cc53c39a4159da0680}{Bishop}} (\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}, int X, int Y)
+\item 
+string \mbox{\hyperlink{class_bishop_a9bc738eb43a9611fa2f11088abd0a2ee}{to\+Utf}} ()
+\begin{DoxyCompactList}\small\item\em retourne le caractère unicode de la pièce \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_bishop_a34d4ff8cf70bb5b0300a6cb8077f2e52}{is\+Move\+Legal}} (int x2, int y2, \mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em vérifie si le mouvement est légal jusqu\textquotesingle{}à la case (x2, y2) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_piece}{Piece}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_piece_a92503b9e853fba2065f477e95cd04197}{Piece}} (\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} type, \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}, int X, int Y)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxylink{class_piece}{Piece}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_piece_a1fa10b0883b6cd5f0862216a4c202e36}{\texorpdfstring{$\sim$}{\string~}\+Piece}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \doxylink{class_piece}{Piece}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs publics hérités de \mbox{\hyperlink{class_piece}{Piece}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}
+\begin{DoxyCompactList}\small\item\em couleur de la pièce \end{DoxyCompactList}\item 
+\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} \mbox{\hyperlink{class_piece_a789dc9662b5397812e1abdf55d9ca2d3}{id}}
+\begin{DoxyCompactList}\small\item\em type de la pièce \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}}
+\begin{DoxyCompactList}\small\item\em position en X de la pièce \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}}
+\begin{DoxyCompactList}\small\item\em position en Y de la pièce \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_piece_abf10691ada630b75d0602d54efb05f3d}{En\+Passant}}
+\begin{DoxyCompactList}\small\item\em true si la pièce peut être prise en passant \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_piece_a03bb302d7c5628b43c76f52a60688b0b}{has\+Moved}}
+\begin{DoxyCompactList}\small\item\em true si la pièce a bougé \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+sous classe \doxylink{class_bishop}{Bishop} qui contient le code utf de la piece et son mouvement 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_bishop_a529b0119d51fc5cc53c39a4159da0680}\label{class_bishop_a529b0119d51fc5cc53c39a4159da0680} 
+\index{Bishop@{Bishop}!Bishop@{Bishop}}
+\index{Bishop@{Bishop}!Bishop@{Bishop}}
+\doxysubsubsection{\texorpdfstring{Bishop()}{Bishop()}}
+{\footnotesize\ttfamily Bishop\+::\+Bishop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}}]{color,  }\item[{int}]{X,  }\item[{int}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ :\ \mbox{\hyperlink{class_piece}{Piece}}(\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345}{Bishop\_}},\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}},\ X,\ Y)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_bishop_a34d4ff8cf70bb5b0300a6cb8077f2e52}\label{class_bishop_a34d4ff8cf70bb5b0300a6cb8077f2e52} 
+\index{Bishop@{Bishop}!isMoveLegal@{isMoveLegal}}
+\index{isMoveLegal@{isMoveLegal}!Bishop@{Bishop}}
+\doxysubsubsection{\texorpdfstring{isMoveLegal()}{isMoveLegal()}}
+{\footnotesize\ttfamily int Bishop\+::is\+Move\+Legal (\begin{DoxyParamCaption}\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+vérifie si le mouvement est légal jusqu\textquotesingle{}à la case (x2, y2) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x2} & position en X de la case d\textquotesingle{}arrivée \\
+\hline
+{\em y2} & position en Y de la case d\textquotesingle{}arrivée \\
+\hline
+{\em g} & pointeur vers la classe \doxylink{class_game}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int, 1 si le mouvement est légal, 0 sinon 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{class_piece_a2fd93cac961d80fb5b9c986f2f1e38d6}{Piece}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(\mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}}\ -\/\ x2)\ !=\ abs(\mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}}\ -\/\ y2))\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (!g-\/>\mbox{\hyperlink{class_game_aea994401e6b845b2880629893057eddb}{pathIsClear}}(\mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}},\ \mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}},\ x2,\ y2))\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ g-\/>\mbox{\hyperlink{class_game_a601c8739be24cf551438057f61ba9211}{resetEnPassant}}();}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bishop_a9bc738eb43a9611fa2f11088abd0a2ee}\label{class_bishop_a9bc738eb43a9611fa2f11088abd0a2ee} 
+\index{Bishop@{Bishop}!toUtf@{toUtf}}
+\index{toUtf@{toUtf}!Bishop@{Bishop}}
+\doxysubsubsection{\texorpdfstring{toUtf()}{toUtf()}}
+{\footnotesize\ttfamily string Bishop\+::to\+Utf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+retourne le caractère unicode de la pièce 
+
+\begin{DoxyReturn}{Renvoie}
+string, caractère unicode de la pièce 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{class_piece_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe}{Piece}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)u2657"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)u265D"{}};}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{piece_8hh}{piece.\+hh}}\item 
+\mbox{\hyperlink{piece_8cc}{piece.\+cc}}\end{DoxyCompactItemize}

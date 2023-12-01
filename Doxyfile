@@ -1,0 +1,35 @@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "Jeu d'echec"
+PROJECT_BRIEF          = "Creation d'un jeu d'echec"
+OUTPUT_DIRECTORY       = doc
+
+BUILTIN_STL_SUPPORT = YES
+
+INPUT                  = chess.cc game.cc piece.cc square.cc chess.hh game.hh piece.hh square.hh
+INPUT_ENCODING         = UTF-8
+RECURSIVE              = YES
+
+EXTRACT_ALL = YES
+# Show private members of class
+EXTRACT_PRIVATE = NO
+
+# Show static members of class
+EXTRACT_STATIC = YES
+
+# Add all the header and source file extensions used
+FILE_PATTERNS = *.cc *.hh
+
+
+# Function source code shown inline
+INLINE_SOURCES = YES
+
+GENERATE_TREEVIEW = YES
+
+# Use UML notation for class diagrams
+UML_LOOK = YES
+
+# Show all members in UML class
+UML_LIMIT_NUM_FIELDS = 0
+
+
+OUTPUT_LANGUAGE        = French

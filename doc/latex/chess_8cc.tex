@@ -1,0 +1,40 @@
+\doxysection{Référence du fichier chess.\+cc}
+\hypertarget{chess_8cc}{}\label{chess_8cc}\index{chess.cc@{chess.cc}}
+{\ttfamily \#include "{}chess.\+hh"{}}\newline
+{\ttfamily \#include "{}piece.\+hh"{}}\newline
+{\ttfamily \#include "{}game.\+hh"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{chess_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{chess_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{chess_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{chess.cc@{chess.cc}!main@{main}}
+\index{main@{main}!chess.cc@{chess.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ initialisation}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}\ game;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ boucle\ tant\ que\ la\ partie\ n'est\ pas\ finie}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{while}\ (!game.\mbox{\hyperlink{class_game_a8005e1a69325a16c2ba8f57c60af1db4}{getState}}())\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ game.\mbox{\hyperlink{class_game_a77611c82d15d9a191655ca57231908da}{printBoard}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ game.\mbox{\hyperlink{class_game_aa333825d0bca80e91e53c7e23f053405}{play}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ affichage\ du\ plateau\ final\ et\ du\ résultat}}
+\DoxyCodeLine{00029\ \ \ \ \ game.\mbox{\hyperlink{class_game_a77611c82d15d9a191655ca57231908da}{printBoard}}();}
+\DoxyCodeLine{00030\ \ \ \ \ game.\mbox{\hyperlink{class_game_a674eaf55addb57e7d5eaa078f2e13f3d}{quitGame}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

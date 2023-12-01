@@ -1,0 +1,75 @@
+\doxysection{Référence de la classe Square}
+\hypertarget{class_square}{}\label{class_square}\index{Square@{Square}}
+
+
+Classe \doxylink{class_square}{Square} contenant les informations sur une case.  
+
+
+
+
+{\ttfamily \#include $<$square.\+hh$>$}
+
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_square_ae612111df4c63dffa543bfc4d5c8a84c}{update\+Utf}} ()
+\begin{DoxyCompactList}\small\item\em met à jour le caractère unicode de la case \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_piece}{Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_square_a52eab334fb3f4fe8d29f1f1b7570a52f}{piece}}
+\item 
+string \mbox{\hyperlink{class_square_aad50363f12db6acc140d1eb6130e1d35}{utf}}
+\begin{DoxyCompactList}\small\item\em contient le caractère unicode de la case \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe \doxylink{class_square}{Square} contenant les informations sur une case. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_square_ae612111df4c63dffa543bfc4d5c8a84c}\label{class_square_ae612111df4c63dffa543bfc4d5c8a84c} 
+\index{Square@{Square}!updateUtf@{updateUtf}}
+\index{updateUtf@{updateUtf}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{updateUtf()}{updateUtf()}}
+{\footnotesize\ttfamily void Square\+::update\+Utf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+met à jour le caractère unicode de la case 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_square_a52eab334fb3f4fe8d29f1f1b7570a52f}{piece}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_square_aad50363f12db6acc140d1eb6130e1d35}{utf}}\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00008\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_square_aad50363f12db6acc140d1eb6130e1d35}{utf}}\ =\ \mbox{\hyperlink{class_square_a52eab334fb3f4fe8d29f1f1b7570a52f}{piece}}-\/>\mbox{\hyperlink{class_piece_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe}{toUtf}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+\DoxyCodeLine{00011\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{class_square_a52eab334fb3f4fe8d29f1f1b7570a52f}\label{class_square_a52eab334fb3f4fe8d29f1f1b7570a52f} 
+\index{Square@{Square}!piece@{piece}}
+\index{piece@{piece}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{piece}{piece}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_piece}{Piece}}\texorpdfstring{$\ast$}{*} Square\+::piece}
+
+\Hypertarget{class_square_aad50363f12db6acc140d1eb6130e1d35}\label{class_square_aad50363f12db6acc140d1eb6130e1d35} 
+\index{Square@{Square}!utf@{utf}}
+\index{utf@{utf}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{utf}{utf}}
+{\footnotesize\ttfamily string Square\+::utf}
+
+
+
+contient le caractère unicode de la case 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{square_8hh}{square.\+hh}}\item 
+\mbox{\hyperlink{square_8cc}{square.\+cc}}\end{DoxyCompactItemize}

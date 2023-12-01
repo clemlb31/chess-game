@@ -1,0 +1,264 @@
+\doxysection{Référence du fichier chess.\+hh}
+\hypertarget{chess_8hh}{}\label{chess_8hh}\index{chess.hh@{chess.hh}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \{ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd}{Black}} = 0
+, \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094}{White}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} \+: char \{ \newline
+\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b}{Rook\+\_\+}} = \textquotesingle{}R\textquotesingle{}
+, \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345}{Bishop\+\_\+}} = \textquotesingle{}B\textquotesingle{}
+, \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b}{Knight\+\_\+}} = \textquotesingle{}N\textquotesingle{}
+, \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5}{King\+\_\+}} = \textquotesingle{}K\textquotesingle{}
+, \newline
+\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906}{Queen\+\_\+}} = \textquotesingle{}Q\textquotesingle{}
+, \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af}{Pawn\+\_\+}} = \textquotesingle{}P\textquotesingle{}
+ \}
+\item 
+enum \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56}{File}} \{ \newline
+\mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b}{file\+\_\+a}} = 0
+, \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9}{file\+\_\+b}} = 1
+, \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311}{file\+\_\+c}} = 2
+, \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd}{file\+\_\+d}} = 3
+, \newline
+\mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123}{file\+\_\+e}} = 4
+, \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5}{file\+\_\+f}} = 5
+, \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741}{file\+\_\+g}} = 6
+, \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b}{file\+\_\+h}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbed}{Rank}} \{ \newline
+\mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6}{rank\+\_\+1}} = 0
+, \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d}{rank\+\_\+2}} = 1
+, \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265}{rank\+\_\+3}} = 2
+, \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d}{rank\+\_\+4}} = 3
+, \newline
+\mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d}{rank\+\_\+5}} = 4
+, \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714}{rank\+\_\+6}} = 5
+, \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59}{rank\+\_\+7}} = 6
+, \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866}{rank\+\_\+8}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \{ \newline
+\mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146}{in\+Progess}} = 0
+, \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433}{Black\+Win}} = 1
+, \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7}{White\+Win}} = 2
+, \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a}{Stalemate}} = 3
+, \newline
+\mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335}{quit}} = 4
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}\label{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c} 
+\index{chess.hh@{chess.hh}!Color@{Color}}
+\index{Color@{Color}!chess.hh@{chess.hh}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Black@{Black}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Black@{Black}}}\Hypertarget{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd}\label{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd} 
+Black&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{White@{White}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!White@{White}}}\Hypertarget{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094}\label{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094} 
+White&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd}{Black}}\ =\ 0,\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094}{White}}\ =\ 1\ \};}
+
+\end{DoxyCode}
+\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56} 
+\index{chess.hh@{chess.hh}!File@{File}}
+\index{File@{File}!chess.hh@{chess.hh}}
+\doxysubsubsection{\texorpdfstring{File}{File}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56}{File}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_a@{file\_a}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_a@{file\_a}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b} 
+file\+\_\+a&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_b@{file\_b}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_b@{file\_b}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9} 
+file\+\_\+b&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_c@{file\_c}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_c@{file\_c}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311} 
+file\+\_\+c&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_d@{file\_d}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_d@{file\_d}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd} 
+file\+\_\+d&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_e@{file\_e}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_e@{file\_e}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123} 
+file\+\_\+e&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_f@{file\_f}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_f@{file\_f}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5} 
+file\+\_\+f&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_g@{file\_g}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_g@{file\_g}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741} 
+file\+\_\+g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{file\_h@{file\_h}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!file\_h@{file\_h}}}\Hypertarget{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b}\label{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b} 
+file\+\_\+h&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b}{file\_a}}\ =\ 0,}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9}{file\_b}}\ =\ 1,}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311}{file\_c}}\ =\ 2,}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd}{file\_d}}\ =\ 3,}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123}{file\_e}}\ =\ 4,}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5}{file\_f}}\ =\ 5,}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741}{file\_g}}\ =\ 6,}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b}{file\_h}}\ =\ 7}
+\DoxyCodeLine{00028\ \};}
+
+\end{DoxyCode}
+\Hypertarget{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285}\label{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285} 
+\index{chess.hh@{chess.hh}!GameState@{GameState}}
+\index{GameState@{GameState}!chess.hh@{chess.hh}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{inProgess@{inProgess}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!inProgess@{inProgess}}}\Hypertarget{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146}\label{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146} 
+in\+Progess&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BlackWin@{BlackWin}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!BlackWin@{BlackWin}}}\Hypertarget{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433}\label{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433} 
+Black\+Win&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WhiteWin@{WhiteWin}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!WhiteWin@{WhiteWin}}}\Hypertarget{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7}\label{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7} 
+White\+Win&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stalemate@{Stalemate}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Stalemate@{Stalemate}}}\Hypertarget{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a}\label{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a} 
+Stalemate&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{quit@{quit}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!quit@{quit}}}\Hypertarget{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335}\label{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335} 
+quit&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146}{inProgess}}\ =\ 0,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433}{BlackWin}}\ =\ 1,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7}{WhiteWin}}\ =\ 2,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a}{Stalemate}}\ =\ 3,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335}{quit}}\ =\ 4\ \};}
+
+\end{DoxyCode}
+\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8} 
+\index{chess.hh@{chess.hh}!PieceType@{PieceType}}
+\index{PieceType@{PieceType}!chess.hh@{chess.hh}}
+\doxysubsubsection{\texorpdfstring{PieceType}{PieceType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} \+: char}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rook\_@{Rook\_}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Rook\_@{Rook\_}}}\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b} 
+Rook\+\_\+&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Bishop\_@{Bishop\_}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Bishop\_@{Bishop\_}}}\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345} 
+Bishop\+\_\+&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Knight\_@{Knight\_}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Knight\_@{Knight\_}}}\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b} 
+Knight\+\_\+&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{King\_@{King\_}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!King\_@{King\_}}}\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5} 
+King\+\_\+&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Queen\_@{Queen\_}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Queen\_@{Queen\_}}}\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906} 
+Queen\+\_\+&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pawn\_@{Pawn\_}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!Pawn\_@{Pawn\_}}}\Hypertarget{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af}\label{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af} 
+Pawn\+\_\+&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{keywordtype}{char}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b}{Rook\_}}\ =\ \textcolor{charliteral}{'R'},}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345}{Bishop\_}}\ =\ \textcolor{charliteral}{'B'},}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b}{Knight\_}}\ =\ \textcolor{charliteral}{'N'},}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5}{King\_}}\ =\ \textcolor{charliteral}{'K'},}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906}{Queen\_}}\ =\ \textcolor{charliteral}{'Q'},}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af}{Pawn\_}}\ =\ \textcolor{charliteral}{'P'}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \};}
+
+\end{DoxyCode}
+\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbed}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbed} 
+\index{chess.hh@{chess.hh}!Rank@{Rank}}
+\index{Rank@{Rank}!chess.hh@{chess.hh}}
+\doxysubsubsection{\texorpdfstring{Rank}{Rank}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbed}{Rank}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_1@{rank\_1}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_1@{rank\_1}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6} 
+rank\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_2@{rank\_2}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_2@{rank\_2}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d} 
+rank\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_3@{rank\_3}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_3@{rank\_3}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265} 
+rank\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_4@{rank\_4}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_4@{rank\_4}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d} 
+rank\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_5@{rank\_5}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_5@{rank\_5}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d} 
+rank\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_6@{rank\_6}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_6@{rank\_6}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714} 
+rank\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_7@{rank\_7}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_7@{rank\_7}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59} 
+rank\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rank\_8@{rank\_8}!chess.hh@{chess.hh}}\index{chess.hh@{chess.hh}!rank\_8@{rank\_8}}}\Hypertarget{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866}\label{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866} 
+rank\+\_\+8&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6}{rank\_1}}\ =\ 0,}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d}{rank\_2}}\ =\ 1,}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265}{rank\_3}}\ =\ 2,}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d}{rank\_4}}\ =\ 3,}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d}{rank\_5}}\ =\ 4,}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714}{rank\_6}}\ =\ 5,}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59}{rank\_7}}\ =\ 6,}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866}{rank\_8}}\ =\ 7,}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

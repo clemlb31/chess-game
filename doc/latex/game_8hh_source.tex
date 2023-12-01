@@ -1,0 +1,48 @@
+\doxysection{game.\+hh}
+\hypertarget{game_8hh_source}{}\label{game_8hh_source}\mbox{\hyperlink{game_8hh}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{chess_8hh}{chess.hh}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{piece_8hh}{piece.hh}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{square_8hh}{square.hh}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ state;}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_piece}{Piece}}\ *piecesW[16];}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_piece}{Piece}}\ *piecesB[16];}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ prevousPositions[32][2];}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ previousState[32][2];\ \ \textcolor{comment}{//\ 0\ =\ Enpassant,\ 1\ =\ hasMoved}}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_square}{Square}}\ board[8][8];}
+\DoxyCodeLine{00017\ \ \ \ \ ofstream\ filePartie;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ moveInt[4];}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{string}\ move;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ turn;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ isTheatened(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ color);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ updateBoard();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ moveToFile(\textcolor{keywordtype}{int}\ nb);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ moveToRank(\textcolor{keywordtype}{int}\ nb);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ savePositions();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ undoMove();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ check;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ isCheckMate(\textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ isCheck(\textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ isStalemate(\textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ getmove();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ movePiece();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ shortCastling();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ longCastling();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ promotePawn();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}}();}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_piece}{Piece}}\ *\mbox{\hyperlink{class_game_ac8dbb61525bb8766cf1f8b6fc384c549}{getPiece}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a601c8739be24cf551438057f61ba9211}{resetEnPassant}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_game_aea994401e6b845b2880629893057eddb}{pathIsClear}}(\textcolor{keywordtype}{int}\ x1,\ \textcolor{keywordtype}{int}\ y1,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2);}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \mbox{\hyperlink{class_game_a8005e1a69325a16c2ba8f57c60af1db4}{getState}}();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_aa333825d0bca80e91e53c7e23f053405}{play}}();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a674eaf55addb57e7d5eaa078f2e13f3d}{quitGame}}();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a77611c82d15d9a191655ca57231908da}{printBoard}}();}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{\string~Game}}();}
+\DoxyCodeLine{00088\ \};}
+
+\end{DoxyCode}

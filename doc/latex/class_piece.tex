@@ -1,0 +1,204 @@
+\doxysection{Référence de la classe Piece}
+\hypertarget{class_piece}{}\label{class_piece}\index{Piece@{Piece}}
+
+
+Classe \doxylink{class_piece}{Piece} contenant les informations sur une pièce.  
+
+
+
+
+{\ttfamily \#include $<$piece.\+hh$>$}
+
+Graphe d\textquotesingle{}héritage de Piece\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_piece}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_piece_a92503b9e853fba2065f477e95cd04197}{Piece}} (\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} type, \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}, int X, int Y)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxylink{class_piece}{Piece}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_piece_a1fa10b0883b6cd5f0862216a4c202e36}{\texorpdfstring{$\sim$}{\string~}\+Piece}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \doxylink{class_piece}{Piece}. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_piece_a2fd93cac961d80fb5b9c986f2f1e38d6}{is\+Move\+Legal}} (int x2, int y2, \mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}g)=0
+\begin{DoxyCompactList}\small\item\em vérifie si le mouvement est légal jusqu\textquotesingle{}à la case (x2, y2) \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_piece_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe}{to\+Utf}} ()=0
+\begin{DoxyCompactList}\small\item\em retourne le caractère unicode de la pièce \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}
+\begin{DoxyCompactList}\small\item\em couleur de la pièce \end{DoxyCompactList}\item 
+\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} \mbox{\hyperlink{class_piece_a789dc9662b5397812e1abdf55d9ca2d3}{id}}
+\begin{DoxyCompactList}\small\item\em type de la pièce \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}}
+\begin{DoxyCompactList}\small\item\em position en X de la pièce \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}}
+\begin{DoxyCompactList}\small\item\em position en Y de la pièce \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_piece_abf10691ada630b75d0602d54efb05f3d}{En\+Passant}}
+\begin{DoxyCompactList}\small\item\em true si la pièce peut être prise en passant \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_piece_a03bb302d7c5628b43c76f52a60688b0b}{has\+Moved}}
+\begin{DoxyCompactList}\small\item\em true si la pièce a bougé \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe \doxylink{class_piece}{Piece} contenant les informations sur une pièce. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_piece_a92503b9e853fba2065f477e95cd04197}\label{class_piece_a92503b9e853fba2065f477e95cd04197} 
+\index{Piece@{Piece}!Piece@{Piece}}
+\index{Piece@{Piece}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{Piece()}{Piece()}}
+{\footnotesize\ttfamily Piece\+::\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}}}]{type,  }\item[{\mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}}]{color,  }\item[{int}]{X,  }\item[{int}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe \doxylink{class_piece}{Piece}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & type de la pièce (\doxylink{class_pawn}{Pawn}, \doxylink{class_rook}{Rook}, \doxylink{class_bishop}{Bishop}, \doxylink{class_knight}{Knight}, \doxylink{class_king}{King}, \doxylink{class_queen}{Queen}) \\
+\hline
+{\em color} & couleur de la pièce (White, Black) \\
+\hline
+{\em X} & position initiale en X \\
+\hline
+{\em Y} & position initiale en Y \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}(\mbox{\hyperlink{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}{color}}),\ \mbox{\hyperlink{class_piece_a789dc9662b5397812e1abdf55d9ca2d3}{id}}(type),\ \mbox{\hyperlink{class_piece_aa08df3bf50f511dde709d9cef8aeb319}{posX}}(X),\ \mbox{\hyperlink{class_piece_ae3187c923907e0b19c02539af49194c4}{posY}}(Y),\ \mbox{\hyperlink{class_piece_abf10691ada630b75d0602d54efb05f3d}{EnPassant}}(0),\ \mbox{\hyperlink{class_piece_a03bb302d7c5628b43c76f52a60688b0b}{hasMoved}}(\textcolor{keyword}{false})\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_piece_a1fa10b0883b6cd5f0862216a4c202e36}\label{class_piece_a1fa10b0883b6cd5f0862216a4c202e36} 
+\index{Piece@{Piece}!````~Piece@{\texorpdfstring{$\sim$}{\string~}Piece}}
+\index{````~Piece@{\texorpdfstring{$\sim$}{\string~}Piece}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Piece()}{\string~Piece()}}
+{\footnotesize\ttfamily virtual Piece\+::\texorpdfstring{$\sim$}{\string~}\+Piece (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructeur de la classe \doxylink{class_piece}{Piece}. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_piece_a2fd93cac961d80fb5b9c986f2f1e38d6}\label{class_piece_a2fd93cac961d80fb5b9c986f2f1e38d6} 
+\index{Piece@{Piece}!isMoveLegal@{isMoveLegal}}
+\index{isMoveLegal@{isMoveLegal}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{isMoveLegal()}{isMoveLegal()}}
+{\footnotesize\ttfamily virtual int Piece\+::is\+Move\+Legal (\begin{DoxyParamCaption}\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+vérifie si le mouvement est légal jusqu\textquotesingle{}à la case (x2, y2) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x2} & position en X de la case d\textquotesingle{}arrivée \\
+\hline
+{\em y2} & position en Y de la case d\textquotesingle{}arrivée \\
+\hline
+{\em g} & pointeur vers la classe \doxylink{class_game}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int, 1 si le mouvement est légal, 0 sinon 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_pawn_a1c214d1140b9e6afcfeac8d2350d36b1}{Pawn}}, \mbox{\hyperlink{class_rook_aeacc37f00c9497be6332f2ff538cee83}{Rook}}, \mbox{\hyperlink{class_bishop_a34d4ff8cf70bb5b0300a6cb8077f2e52}{Bishop}}, \mbox{\hyperlink{class_knight_ad3e89c9350b0f10fa8b76b1a4f16c5cf}{Knight}}, \mbox{\hyperlink{class_king_a7d6e6b021bf4d748a4e136e764c92e4b}{King}}, et \mbox{\hyperlink{class_queen_ad6d28757a181095213663cd6e16ec4b5}{Queen}}.
+
+\Hypertarget{class_piece_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe}\label{class_piece_ae7f0c8f3d8cbb07cbfe7e9f075c4d5fe} 
+\index{Piece@{Piece}!toUtf@{toUtf}}
+\index{toUtf@{toUtf}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{toUtf()}{toUtf()}}
+{\footnotesize\ttfamily virtual string Piece\+::to\+Utf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+retourne le caractère unicode de la pièce 
+
+\begin{DoxyReturn}{Renvoie}
+string, caractère unicode de la pièce 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_pawn_af263b31ffb6ca6f3724780989b137450}{Pawn}}, \mbox{\hyperlink{class_rook_a79c2cc36c45d1d30c7b3c4b5f74ece2c}{Rook}}, \mbox{\hyperlink{class_bishop_a9bc738eb43a9611fa2f11088abd0a2ee}{Bishop}}, \mbox{\hyperlink{class_knight_a00d2d7ff1bbf8e51d07d7d7799a977af}{Knight}}, \mbox{\hyperlink{class_king_a7e4cbf716a4d681f38cefc8503b9379f}{King}}, et \mbox{\hyperlink{class_queen_ac0001020a207213cf2d6d3fc3f8f3e7a}{Queen}}.
+
+
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc}\label{class_piece_a4cf5b29a9e13dcb93b616b11160c2abc} 
+\index{Piece@{Piece}!color@{color}}
+\index{color@{color}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}} Piece\+::color}
+
+
+
+couleur de la pièce 
+
+\Hypertarget{class_piece_abf10691ada630b75d0602d54efb05f3d}\label{class_piece_abf10691ada630b75d0602d54efb05f3d} 
+\index{Piece@{Piece}!EnPassant@{EnPassant}}
+\index{EnPassant@{EnPassant}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{EnPassant}{EnPassant}}
+{\footnotesize\ttfamily bool Piece\+::\+En\+Passant}
+
+
+
+true si la pièce peut être prise en passant 
+
+\Hypertarget{class_piece_a03bb302d7c5628b43c76f52a60688b0b}\label{class_piece_a03bb302d7c5628b43c76f52a60688b0b} 
+\index{Piece@{Piece}!hasMoved@{hasMoved}}
+\index{hasMoved@{hasMoved}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{hasMoved}{hasMoved}}
+{\footnotesize\ttfamily bool Piece\+::has\+Moved}
+
+
+
+true si la pièce a bougé 
+
+\Hypertarget{class_piece_a789dc9662b5397812e1abdf55d9ca2d3}\label{class_piece_a789dc9662b5397812e1abdf55d9ca2d3} 
+\index{Piece@{Piece}!id@{id}}
+\index{id@{id}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{Piece\+Type}} Piece\+::id}
+
+
+
+type de la pièce 
+
+\Hypertarget{class_piece_aa08df3bf50f511dde709d9cef8aeb319}\label{class_piece_aa08df3bf50f511dde709d9cef8aeb319} 
+\index{Piece@{Piece}!posX@{posX}}
+\index{posX@{posX}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{posX}{posX}}
+{\footnotesize\ttfamily int Piece\+::posX}
+
+
+
+position en X de la pièce 
+
+\Hypertarget{class_piece_ae3187c923907e0b19c02539af49194c4}\label{class_piece_ae3187c923907e0b19c02539af49194c4} 
+\index{Piece@{Piece}!posY@{posY}}
+\index{posY@{posY}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{posY}{posY}}
+{\footnotesize\ttfamily int Piece\+::posY}
+
+
+
+position en Y de la pièce 
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{piece_8hh}{piece.\+hh}}\end{DoxyCompactItemize}

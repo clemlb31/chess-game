@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jeu d&#39;echec: Référence du fichier chess.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Jeu d&#39;echec
+   </div>
+   <div id="projectbrief">Creation d&#39;un jeu d&#39;echec</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('chess_8hh.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier chess.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div>
+<p><a href="chess_8hh_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ab87bacfdad76e61b9412d7124be44c1c" id="r_ab87bacfdad76e61b9412d7124be44c1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> { <a class="el" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd">Black</a> = 0
+, <a class="el" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094">White</a> = 1
+ }</td></tr>
+<tr class="separator:ab87bacfdad76e61b9412d7124be44c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d8a4c7667947e0c197b7fb68bc88f8" id="r_a90d8a4c7667947e0c197b7fb68bc88f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a> : char { <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a> = 'R'
+, <a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a> = 'B'
+, <a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a> = 'N'
+, <a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a> = 'K'
+, <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a> = 'Q'
+, <a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a> = 'P'
+<br />
+ }</td></tr>
+<tr class="separator:a90d8a4c7667947e0c197b7fb68bc88f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af10f27103f941f5cbafc9d21d6554e56" id="r_af10f27103f941f5cbafc9d21d6554e56"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56">File</a> { <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b">file_a</a> = 0
+, <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9">file_b</a> = 1
+, <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311">file_c</a> = 2
+, <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd">file_d</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123">file_e</a> = 4
+, <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5">file_f</a> = 5
+, <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741">file_g</a> = 6
+, <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b">file_h</a> = 7
+<br />
+ }</td></tr>
+<tr class="separator:af10f27103f941f5cbafc9d21d6554e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf74d53cd68bbef55ba510b266ecbbed" id="r_adf74d53cd68bbef55ba510b266ecbbed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> { <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6">rank_1</a> = 0
+, <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d">rank_2</a> = 1
+, <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265">rank_3</a> = 2
+, <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d">rank_4</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d">rank_5</a> = 4
+, <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714">rank_6</a> = 5
+, <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59">rank_7</a> = 6
+, <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866">rank_8</a> = 7
+<br />
+ }</td></tr>
+<tr class="separator:adf74d53cd68bbef55ba510b266ecbbed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7899b65f1ea0f655e4bbf8d2a5714285" id="r_a7899b65f1ea0f655e4bbf8d2a5714285"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> { <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146">inProgess</a> = 0
+, <a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433">BlackWin</a> = 1
+, <a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7">WhiteWin</a> = 2
+, <a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a">Stalemate</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335">quit</a> = 4
+<br />
+ }</td></tr>
+<tr class="separator:a7899b65f1ea0f655e4bbf8d2a5714285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ab87bacfdad76e61b9412d7124be44c1c" name="ab87bacfdad76e61b9412d7124be44c1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87bacfdad76e61b9412d7124be44c1c">&#9670;&#160;</a></span>Color</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd" name="ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd"></a>Black&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094" name="ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094"></a>White&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>{ <a class="code hl_enumvalue" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd">Black</a> = 0, <a class="code hl_enumvalue" href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094">White</a> = 1 };</div>
+<div class="ttc" id="achess_8hh_html_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094"><div class="ttname"><a href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094">White</a></div><div class="ttdeci">@ White</div><div class="ttdef"><b>Definition</b> chess.hh:7</div></div>
+<div class="ttc" id="achess_8hh_html_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd"><div class="ttname"><a href="chess_8hh.html#ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd">Black</a></div><div class="ttdeci">@ Black</div><div class="ttdef"><b>Definition</b> chess.hh:7</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af10f27103f941f5cbafc9d21d6554e56" name="af10f27103f941f5cbafc9d21d6554e56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af10f27103f941f5cbafc9d21d6554e56">&#9670;&#160;</a></span>File</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56">File</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b" name="af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b"></a>file_a&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9" name="af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9"></a>file_b&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311" name="af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311"></a>file_c&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd" name="af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd"></a>file_d&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123" name="af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123"></a>file_e&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5" name="af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5"></a>file_f&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741" name="af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741"></a>file_g&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b" name="af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b"></a>file_h&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>          {</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b">file_a</a> = 0,</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9">file_b</a> = 1,</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311">file_c</a> = 2,</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd">file_d</a> = 3,</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123">file_e</a> = 4,</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5">file_f</a> = 5,</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741">file_g</a> = 6,</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_enumvalue" href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b">file_h</a> = 7</div>
+<div class="line"><span class="lineno">   28</span>};</div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741">file_g</a></div><div class="ttdeci">@ file_g</div><div class="ttdef"><b>Definition</b> chess.hh:26</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b">file_h</a></div><div class="ttdeci">@ file_h</div><div class="ttdef"><b>Definition</b> chess.hh:27</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9">file_b</a></div><div class="ttdeci">@ file_b</div><div class="ttdef"><b>Definition</b> chess.hh:21</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311">file_c</a></div><div class="ttdeci">@ file_c</div><div class="ttdef"><b>Definition</b> chess.hh:22</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b">file_a</a></div><div class="ttdeci">@ file_a</div><div class="ttdef"><b>Definition</b> chess.hh:20</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd">file_d</a></div><div class="ttdeci">@ file_d</div><div class="ttdef"><b>Definition</b> chess.hh:23</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123">file_e</a></div><div class="ttdeci">@ file_e</div><div class="ttdef"><b>Definition</b> chess.hh:24</div></div>
+<div class="ttc" id="achess_8hh_html_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5"><div class="ttname"><a href="chess_8hh.html#af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5">file_f</a></div><div class="ttdeci">@ file_f</div><div class="ttdef"><b>Definition</b> chess.hh:25</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7899b65f1ea0f655e4bbf8d2a5714285" name="a7899b65f1ea0f655e4bbf8d2a5714285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7899b65f1ea0f655e4bbf8d2a5714285">&#9670;&#160;</a></span>GameState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146" name="a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146"></a>inProgess&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433" name="a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433"></a>BlackWin&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7" name="a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7"></a>WhiteWin&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a" name="a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a"></a>Stalemate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335" name="a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335"></a>quit&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>{ <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146">inProgess</a> = 0, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433">BlackWin</a> = 1, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7">WhiteWin</a> = 2, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a">Stalemate</a> = 3, <a class="code hl_enumvalue" href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335">quit</a> = 4 };</div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335">quit</a></div><div class="ttdeci">@ quit</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433">BlackWin</a></div><div class="ttdeci">@ BlackWin</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a">Stalemate</a></div><div class="ttdeci">@ Stalemate</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7">WhiteWin</a></div><div class="ttdeci">@ WhiteWin</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+<div class="ttc" id="achess_8hh_html_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146"><div class="ttname"><a href="chess_8hh.html#a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146">inProgess</a></div><div class="ttdeci">@ inProgess</div><div class="ttdef"><b>Definition</b> chess.hh:40</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a90d8a4c7667947e0c197b7fb68bc88f8" name="a90d8a4c7667947e0c197b7fb68bc88f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d8a4c7667947e0c197b7fb68bc88f8">&#9670;&#160;</a></span>PieceType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8">PieceType</a> : char</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b" name="a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b"></a>Rook_&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345" name="a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345"></a>Bishop_&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b" name="a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b"></a>Knight_&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5" name="a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5"></a>King_&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906" name="a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906"></a>Queen_&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af" name="a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af"></a>Pawn_&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>               : <span class="keywordtype">char</span> {</div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a> = <span class="charliteral">&#39;R&#39;</span>,</div>
+<div class="line"><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a> = <span class="charliteral">&#39;B&#39;</span>,</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a> = <span class="charliteral">&#39;N&#39;</span>,</div>
+<div class="line"><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a> = <span class="charliteral">&#39;K&#39;</span>,</div>
+<div class="line"><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a> = <span class="charliteral">&#39;Q&#39;</span>,</div>
+<div class="line"><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a> = <span class="charliteral">&#39;P&#39;</span></div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>};</div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5">King_</a></div><div class="ttdeci">@ King_</div><div class="ttdef"><b>Definition</b> chess.hh:13</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906">Queen_</a></div><div class="ttdeci">@ Queen_</div><div class="ttdef"><b>Definition</b> chess.hh:14</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b">Knight_</a></div><div class="ttdeci">@ Knight_</div><div class="ttdef"><b>Definition</b> chess.hh:12</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af">Pawn_</a></div><div class="ttdeci">@ Pawn_</div><div class="ttdef"><b>Definition</b> chess.hh:15</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345">Bishop_</a></div><div class="ttdeci">@ Bishop_</div><div class="ttdef"><b>Definition</b> chess.hh:11</div></div>
+<div class="ttc" id="achess_8hh_html_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b"><div class="ttname"><a href="chess_8hh.html#a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b">Rook_</a></div><div class="ttdeci">@ Rook_</div><div class="ttdef"><b>Definition</b> chess.hh:10</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adf74d53cd68bbef55ba510b266ecbbed" name="adf74d53cd68bbef55ba510b266ecbbed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf74d53cd68bbef55ba510b266ecbbed">&#9670;&#160;</a></span>Rank</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6" name="adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6"></a>rank_1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d" name="adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d"></a>rank_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265" name="adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265"></a>rank_3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d" name="adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d"></a>rank_4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d" name="adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d"></a>rank_5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714" name="adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714"></a>rank_6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59" name="adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59"></a>rank_7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866" name="adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866"></a>rank_8&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>          {</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6">rank_1</a> = 0,</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d">rank_2</a> = 1,</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265">rank_3</a> = 2,</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d">rank_4</a> = 3,</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d">rank_5</a> = 4,</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714">rank_6</a> = 5,</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59">rank_7</a> = 6,</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_enumvalue" href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866">rank_8</a> = 7,</div>
+<div class="line"><span class="lineno">   38</span>};</div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d">rank_5</a></div><div class="ttdeci">@ rank_5</div><div class="ttdef"><b>Definition</b> chess.hh:34</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265">rank_3</a></div><div class="ttdeci">@ rank_3</div><div class="ttdef"><b>Definition</b> chess.hh:32</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59">rank_7</a></div><div class="ttdeci">@ rank_7</div><div class="ttdef"><b>Definition</b> chess.hh:36</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6">rank_1</a></div><div class="ttdeci">@ rank_1</div><div class="ttdef"><b>Definition</b> chess.hh:30</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714">rank_6</a></div><div class="ttdeci">@ rank_6</div><div class="ttdef"><b>Definition</b> chess.hh:35</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d">rank_2</a></div><div class="ttdeci">@ rank_2</div><div class="ttdef"><b>Definition</b> chess.hh:31</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d">rank_4</a></div><div class="ttdeci">@ rank_4</div><div class="ttdef"><b>Definition</b> chess.hh:33</div></div>
+<div class="ttc" id="achess_8hh_html_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866"><div class="ttname"><a href="chess_8hh.html#adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866">rank_8</a></div><div class="ttdeci">@ rank_8</div><div class="ttdef"><b>Definition</b> chess.hh:37</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="chess_8hh.html">chess.hh</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

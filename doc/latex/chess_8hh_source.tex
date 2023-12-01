@@ -1,0 +1,45 @@
+\doxysection{chess.\+hh}
+\hypertarget{chess_8hh_source}{}\label{chess_8hh_source}\mbox{\hyperlink{chess_8hh}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ enum\ pour\ une\ meilleur\ lisibilité}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \{\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cac1e9bce8242f443c54c7405223d616cd}{Black}}\ =\ 0,\ \mbox{\hyperlink{chess_8hh_ab87bacfdad76e61b9412d7124be44c1cab548046646b36c12aa6ba841de500094}{White}}\ =\ 1\ \};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8}{PieceType}}\ :\ \textcolor{keywordtype}{char}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8ae85e4f5a47cee4678d87ca3096362d6b}{Rook\_}}\ =\ \textcolor{charliteral}{'R'},}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8aa74677ab6e774bee28ed7d2382290345}{Bishop\_}}\ =\ \textcolor{charliteral}{'B'},}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a89603f687248ddfa9433fdae207c842b}{Knight\_}}\ =\ \textcolor{charliteral}{'N'},}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a2f45b068e7c497cb0bc36ee735477ba5}{King\_}}\ =\ \textcolor{charliteral}{'K'},}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a6d40923dceb89ebd8d69c4004344b906}{Queen\_}}\ =\ \textcolor{charliteral}{'Q'},}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{chess_8hh_a90d8a4c7667947e0c197b7fb68bc88f8a8da7b66057bf310daaeb12c6b364d1af}{Pawn\_}}\ =\ \textcolor{charliteral}{'P'}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56}{File}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ac5002ab25fa4036f491b8105d99ed14b}{file\_a}}\ =\ 0,}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a4b9b870f4f1d02cd36191193bd99a9a9}{file\_b}}\ =\ 1,}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a54b44a0f6f63e902d19af1f9459ce311}{file\_c}}\ =\ 2,}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56ae2f899f17fc46b3b6353afbac336d7dd}{file\_d}}\ =\ 3,}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56af5a520fa85f213078889b92b2b082123}{file\_e}}\ =\ 4,}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56affad7ba7000dd2e18e2791973ef95bc5}{file\_f}}\ =\ 5,}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a43e6f819385cd535e84775988dc50741}{file\_g}}\ =\ 6,}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{chess_8hh_af10f27103f941f5cbafc9d21d6554e56a45812f6f4d1a8dd0d7997331dd33e09b}{file\_h}}\ =\ 7}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbed}{Rank}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda6cd41205881aa04ab2622aaa5121e2e6}{rank\_1}}\ =\ 0,}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedace0f1aa15af96d95e426726360dba41d}{rank\_2}}\ =\ 1,}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda21a90b932a89acceb3ab3d2773e28265}{rank\_3}}\ =\ 2,}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaeea8f08e8db96281eebc4ae88c930a8d}{rank\_4}}\ =\ 3,}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda02571df86aae977f7904c9162467088d}{rank\_5}}\ =\ 4,}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda89b1ecb1d091a8bf7d90d8336ff55714}{rank\_6}}\ =\ 5,}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbeda3380d73aa810ae6beee90cc7461f3f59}{rank\_7}}\ =\ 6,}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{chess_8hh_adf74d53cd68bbef55ba510b266ecbbedaf84f20a700227d978521827ff7a42866}{rank\_8}}\ =\ 7,}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \{\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285afb7e71b1c0d83169035adf61c530b146}{inProgess}}\ =\ 0,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a86f4e97f140ceb0fb65db639bfdc5433}{BlackWin}}\ =\ 1,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ade3cf4fd890a7c8b032eec3dbf521ac7}{WhiteWin}}\ =\ 2,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285ad45a4d89cf75d521c4291dece44f132a}{Stalemate}}\ =\ 3,\ \mbox{\hyperlink{chess_8hh_a7899b65f1ea0f655e4bbf8d2a5714285a3b81dce366295e52b47ca4d263ba8335}{quit}}\ =\ 4\ \};}
+
+\end{DoxyCode}
